@@ -2,13 +2,13 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
-  build_line:
+jobs:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
       - name: Install pnpm
@@ -16,25 +16,27 @@ on:
         with:
           version: 8
 
-      - name: Install NodeJS
-        uses: actions/checkout@v4
-        with: node-version 20
-        cache: pnpm
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
 
       - name: Install Dependencies
         run: pnpm install
 
       - name: Build
-        env: BASE_PATH: '/${{ github.event.repository.name }}'
-        run: | pnpm run build
+        env:
+          BASE_PATH: "/${{ github.event.repository.name }}"
+        run: pnpm run build
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-         path: 'build/'
+          path: build/
 
-  deploy_line:
-    needs: build_line
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
 
     permissions:
