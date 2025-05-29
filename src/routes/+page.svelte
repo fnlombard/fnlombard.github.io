@@ -12,19 +12,11 @@
         { id: "settings", label: "Settings" }
     ];
 
-    let currentPage = "home";
+    const iconPath = "/favicon.png";
+    const title = "Francois Lombard";
 </script>
 
 <div class="flex">
-    <VerticalNavBar externalLinks={links} {navItems} />
-
-    <main class="ml-20 flex-1 p-6 md:ml-64">
-        {#if currentPage === "home"}
-            <p>Home Page</p>
-        {:else if currentPage === "about"}
-            <p>About Page</p>
-        {:else if currentPage === "settings"}
-            <p>Settings Page</p>
-        {/if}
-    </main>
+    <VerticalNavBar {title} {navItems} {iconPath} {links} />
+    <div>Things come here.</div>
 </div>
