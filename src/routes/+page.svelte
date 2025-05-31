@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Icon from "$lib/components/icon/Icon.svelte";
+    import { icons } from "$lib/icons";
     import VerticalNavBar from "$lib/components/vertical-nav-bar/VerticalNavBar.svelte";
 
     const links: Link[] = [
@@ -7,7 +9,7 @@
     ];
 
     const navItems: NavItem[] = [
-        { id: "home", label: "Home" },
+        { id: "home", label: "Home", icon: icons["github"] },
         { id: "about", label: "About" },
         { id: "settings", label: "Settings" }
     ];
@@ -18,5 +20,4 @@
 
 <div class="flex">
     <VerticalNavBar {title} {navItems} {iconPath} {links} />
-    <div>Things come here.</div>
 </div>

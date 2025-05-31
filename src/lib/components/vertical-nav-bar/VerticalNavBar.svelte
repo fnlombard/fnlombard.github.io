@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Button from "../button/Button.svelte";
     import { ComponentConfig } from "./config";
 
     const config = new ComponentConfig({
@@ -66,9 +67,15 @@
 
     <nav class="w-full flex-1">
         {#each props.navItems as item}
-            <button class="w-full truncate rounded px-2 py-2 text-left text-sm hover:bg-gray-700">
-                {#if !collapsed}{item.label}{/if}
-            </button>
+            <Button
+                label={item.label}
+                onClick={() => {
+                    console.log(`Navigating to ${item.id}`);
+                }}
+                disabled={false}
+                {collapsed}
+                iconPath={item.icon}
+            />
         {/each}
     </nav>
 </div>
