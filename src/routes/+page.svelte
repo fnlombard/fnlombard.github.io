@@ -1,21 +1,26 @@
 <script lang="ts">
-    import Icon from "$lib/components/icon/Icon.svelte";
     import { icons } from "$lib/icons";
     import VerticalNavBar from "$lib/components/vertical-nav-bar/VerticalNavBar.svelte";
 
     const links: Link[] = [
-        { label: "GitHub", url: "https://github.com" },
-        { label: "Docs", url: "https://svelte.dev" }
+        { label: "GitHub", url: "https://github.com/fnlombard", icon: icons["github"] },
+        {
+            label: "LinkedIn",
+            url: "https://www.linkedin.com/in/fnlombard/",
+            icon: icons["linkedin"]
+        }
     ];
 
     const navItems: NavItem[] = [
-        { id: "home", label: "Home", icon: icons["github"] },
+        { id: "home", label: "Home" },
         { id: "about", label: "About" },
         { id: "settings", label: "Settings" }
     ];
 
     const iconPath = "/favicon.png";
     const title = "Francois Lombard";
+
+    let test_collapsed = $state(false);
 </script>
 
 <div class="flex">

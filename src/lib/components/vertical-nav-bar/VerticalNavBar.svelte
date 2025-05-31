@@ -34,7 +34,7 @@
 
 <div
     style="width: {width};"
-    class={`h-screen bg-gray-900 p-4 text-white transition-all duration-300 ${width} flex flex-col items-center`}
+    class={`flex h-screen flex-col items-center bg-gray-900 p-4 text-white transition-all duration-300`}
 >
     <button class="cursor-pointer" onclick={toggleCollapse}>
         <img class="w-full" src={props.iconPath} alt="avatar" />
@@ -52,13 +52,8 @@
 
     <div class="w-full">
         {#each props.links as link}
-            <a
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="block truncate rounded px-2 py-2 text-sm hover:bg-gray-700"
-            >
-                {#if !collapsed}{link.label}{/if}
+            <a href={link.url} target="_blank">
+                <Button label={link.label} disabled={false} {collapsed} iconPath={link.icon} />
             </a>
         {/each}
     </div>
