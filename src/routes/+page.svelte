@@ -1,6 +1,7 @@
 <script lang="ts">
     import { icons } from "$lib/icons";
     import VerticalNavBar from "$lib/components/vertical-nav-bar/VerticalNavBar.svelte";
+    import IconButton from "$lib/components/button/IconButton.svelte";
 
     const links: Link[] = [
         { label: "GitHub", url: "https://github.com/fnlombard", icon: icons["github"] },
@@ -25,4 +26,9 @@
 
 <div class="flex">
     <VerticalNavBar {title} {navItems} {iconPath} {links} />
+    <IconButton
+        iconPath={icons["github"]}
+        onClick={() => console.log("GitHub clicked")}
+        disabled={false}
+    />
 </div>
