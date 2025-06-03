@@ -1,13 +1,12 @@
 <script lang="ts">
     import Icon from "../icon/Icon.svelte";
-    import { fade } from "svelte/transition";
 
     interface buttonProps {
-        label: string;
+        label?: string;
         onClick?: () => void;
         disabled?: boolean;
-        collapsed?: boolean;
         iconPath?: string;
+        collapsed?: boolean;
     }
 
     const props: buttonProps = $props();
@@ -20,10 +19,6 @@
     function mouseLeave() {
         is_focused = false;
     }
-
-    let firstLetter = $derived.by(() => {
-        return props.label.charAt(0).toUpperCase();
-    });
 </script>
 
 <button
@@ -34,19 +29,16 @@
     disabled={props.disabled}
 >
     {#if props.iconPath}
-        <div class="w-6">
+        <div class="min-w-6">
             <Icon path={props.iconPath} {is_focused} />
         </div>
     {/if}
 
-    <div class="text-center">
-        {#if !props.collapsed}
-            <div class="absolute ml-2" transition:fade={{ duration: 200 }}>
-                {props.label}
-            </div>
-        {/if}
-        {#if !props.iconPath}
-            <div class="absolute ml-2">{firstLetter}</div>
-        {/if}
+    <div
+        class="mx-2 my-auto flex items-center whitespace-nowrap transition-opacity duration-200"
+        class:opacity-0={props.collapsed}
+        class:opacity-100={!props.collapsed}
+    >
+        {props.label}
     </div>
 </button>
