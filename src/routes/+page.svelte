@@ -19,4 +19,11 @@
 
 <div class="flex">
     <VerticalNavBar {title} {iconPath} {links} />
+    <div class="flex-1 p-4">
+        <h1 class="text-2xl font-bold">TODO:</h1>
+        <ul>
+            <li>Make a x-axis timeline component.</li>
+            <li>More things...</li>
+        </ul>
+    </div>
 </div>
