@@ -2,7 +2,7 @@
     import { icons } from "$lib/icons";
     import VerticalNavBar from "$lib/components/vertical-nav-bar/VerticalNavBar.svelte";
     import HorizontalTimeline from "$lib/components/horizontal-timeline/HorizontalTimeline.svelte";
-    import type { timelineItem } from "$lib/components/horizontal-timeline/HorizontalTimeline.svelte";
+    import type { timelineItem } from "$lib/components/horizontal-timeline/TimelineItem.svelte";
 
     const links: Link[] = [
         { label: "GitHub", url: "https://github.com/fnlombard", icon: icons["github"] },
