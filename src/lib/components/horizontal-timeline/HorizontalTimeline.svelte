@@ -46,16 +46,16 @@
     }
 </script>
 
-<div class="relative w-full overflow-x-auto px-10 py-40">
+<div class="relative w-full px-10 py-40">
     <div class="relative h-4 w-full">
         <!-- Base timeline -->
-        <div class="absolute top-1/2 left-0 z-0 h-1 w-full -translate-y-1/2 bg-black"></div>
+        <div class="absolute top-1/2 left-0 z-0 h-1 w-full -translate-y-1/2 bg-gray-900"></div>
 
         <!-- Ticks -->
         {#each getTickDates() as tick}
             <div class="absolute top-0 h-3 w-px bg-gray-500" style="left: {tick.left}%"></div>
             <div
-                class="absolute mt-3 -translate-x-1/2 text-xs whitespace-nowrap text-gray-600"
+                class="absolute mt-3 -translate-x-1/2 text-xs whitespace-nowrap text-gray-500"
                 style="left: {tick.left}%"
             >
                 {tick.date}

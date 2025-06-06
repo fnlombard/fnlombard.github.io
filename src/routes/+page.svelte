@@ -10,31 +10,6 @@
             label: "LinkedIn",
             url: "https://www.linkedin.com/in/fnlombard/",
             icon: icons["linkedin"]
-        },
-        {
-            label: "Stellenbosch University",
-            url: "https://ee.sun.ac.za/",
-            icon: icons["stellenbosch"]
-        },
-        {
-            label: "S-PLANE",
-            url: "https://s-plane.com/products/isr-payload-operation/paragonisr/",
-            icon: icons["splane"]
-        },
-        {
-            label: "VASTech",
-            url: "https://www.vastech.co.za/",
-            icon: icons["vastech"]
-        },
-        {
-            label: "Zenseact",
-            url: "https://zenseact.com/our-software/",
-            icon: icons["zenseact"]
-        },
-        {
-            label: "ESL",
-            url: "https://www.esl.sun.ac.za/",
-            icon: icons["esl"]
         }
     ];
 
@@ -44,39 +19,38 @@
     const items: timelineItem[] = [
         {
             label: "BEng Robitics (Cum Laude)",
-            description: "Stellenbosch University, South Africa",
+            description: "Stellenbosch University, ZA",
             date_start: "2014-01-01",
-            iconPath: icons["stellenbosch"]
+            iconPath: icons["stellenbosch"],
+            url: "https://ee.sun.ac.za/"
         },
         {
             label: "MEng Electronic Engineering",
-            description: "Stellenbosch University, South Africa",
+            description: "Stellenbosch University, ZA",
             date_start: "2018-01-01",
-            iconPath: icons["esl"]
+            iconPath: icons["esl"],
+            url: "https://www.esl.sun.ac.za/"
         },
         {
             label: "Software Engineer",
-            description: "S-PLANE, South Africa",
+            description: "S-PLANE, ZA",
             date_start: "2020-01-01",
-            iconPath: icons["splane"]
-        },
-        {
-            label: "Senior Software Engineer",
-            description: "S-PLANE, South Africa",
-            date_start: "2022-01-01",
-            iconPath: icons["splane"]
+            iconPath: icons["splane"],
+            url: "https://s-plane.com/products/isr-payload-operation/paragonisr/"
         },
         {
             label: "Software Engineer",
-            description: "VASTech, South Africa",
+            description: "VASTech, ZA",
             date_start: "2022-09-01",
-            iconPath: icons["vastech"]
+            iconPath: icons["vastech"],
+            url: "https://www.vastech.co.za/"
         },
         {
             label: "Software Engineer",
-            description: "Zenseact, Sweden",
+            description: "Zenseact, SE",
             date_start: "2024-01-01",
-            iconPath: icons["zenseact"]
+            iconPath: icons["zenseact"],
+            url: "https://zenseact.com/our-software/"
         }
     ];
 </script>

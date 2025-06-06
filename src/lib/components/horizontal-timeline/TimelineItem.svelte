@@ -4,12 +4,15 @@
         description: string;
         date_start: string;
         iconPath: string;
+        url: string;
     }
 </script>
 
 <script lang="ts">
     import Icon from "$lib/components/icon/Icon.svelte";
     import { onMount } from "svelte";
+    import { fly } from "svelte/transition";
+    import { backOut } from "svelte/easing";
 
     interface itemProps {
         item: timelineItem;
@@ -31,17 +34,25 @@
     const width = ((end - start) / total) * 100;
 
     let bubblePosition = $state("translate-x-1/9");
+    let flyX = $state("-200");
     onMount(() => {
-        if (left > 70) bubblePosition = "-translate-x-68";
+        if (left > 70) {
+            bubblePosition = "-translate-x-68";
+            flyX = "200";
+        }
     });
 </script>
 
-<div
+<button
     class="absolute cursor-pointer"
     style="left: {left}%;"
     onmouseenter={() => props.onhover(props.index)}
     onmouseleave={() => props.onhover(null)}
-    role="presentation"
+    onclick={() => {
+        if (props.item.url) {
+            window.open(props.item.url, "_blank");
+        }
+    }}
 >
     <!-- Segment -->
     <div
@@ -57,7 +68,8 @@
     <!-- Info bubble -->
     {#if props.active}
         <div
-            class={`${bubblePosition} absolute z-30 w-60 -translate-y-1/2 rounded bg-gray-900 p-4 text-center shadow-lg shadow-slate-500 transition-all duration-300`}
+            class="{bubblePosition} absolute z-30 w-60 -translate-y-1/2 rounded bg-gray-900 p-4 text-center whitespace-nowrap shadow-lg shadow-slate-500"
+            transition:fly={{ duration: 200, x: flyX, opacity: 0, easing: backOut }}
         >
             <p class="text-gray-100">{props.item.label}</p>
             <p class="mt-1 text-sm text-gray-300">{props.item.description}</p>
@@ -67,4 +79,4 @@
             </p>
         </div>
     {/if}
-</div>
+</button>
