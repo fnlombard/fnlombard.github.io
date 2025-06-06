@@ -8,7 +8,8 @@
 </script>
 
 <script lang="ts">
-    import Icon from "../icon/Icon.svelte";
+    import Icon from "$lib/components/icon/Icon.svelte";
+    import { onMount } from "svelte";
 
     interface itemProps {
         item: timelineItem;
@@ -17,7 +18,7 @@
         minTime: number;
         maxTime: number;
         active: boolean;
-        onhover: (t: timelineItem | null) => void;
+        onhover: (t: number | null) => void;
     }
 
     const props: itemProps = $props();
@@ -28,14 +29,17 @@
     const total = props.maxTime - props.minTime;
     const left = ((start - props.minTime) / total) * 100;
     const width = ((end - start) / total) * 100;
-    const isEven = props.index % 2 === 0;
-    const bubbleSide = isEven ? "top-full mt-4" : "bottom-full mb-4";
+
+    let bubblePosition = $state("translate-x-1/9");
+    onMount(() => {
+        if (left > 70) bubblePosition = "-translate-x-68";
+    });
 </script>
 
 <div
     class="absolute cursor-pointer"
     style="left: {left}%;"
-    onmouseenter={() => props.onhover(props.item)}
+    onmouseenter={() => props.onhover(props.index)}
     onmouseleave={() => props.onhover(null)}
     role="presentation"
 >
@@ -47,19 +51,18 @@
 
     <!-- Icon -->
     <div class="absolute z-20 h-10 w-10 -translate-x-1/2 -translate-y-1/2" style="top: 50%;">
-        <Icon path={props.item.iconPath} />
+        <Icon path={props.item.iconPath} is_focused={props.active} />
     </div>
 
     <!-- Info bubble -->
     {#if props.active}
         <div
-            class={`absolute z-30 w-60 -translate-x-1/2 transform rounded bg-white p-4 text-center shadow-lg transition-all duration-300 ${bubbleSide}`}
+            class={`${bubblePosition} absolute z-30 w-60 -translate-y-1/2 rounded bg-gray-900 p-4 text-center shadow-lg shadow-slate-500 transition-all duration-300`}
         >
-            <div class="mx-auto mb-2 h-5 w-px bg-gray-400"></div>
-            <strong>{props.item.label}</strong>
-            <p class="mt-1 text-sm text-gray-700">{props.item.description}</p>
-            <p class="mt-1 text-xs text-gray-500">
-                {props.item.date_start} - {props.nextStart ??
+            <p class="text-gray-100">{props.item.label}</p>
+            <p class="mt-1 text-sm text-gray-300">{props.item.description}</p>
+            <p class="mt-1 text-xs text-gray-400">
+                {props.item.date_start} -- {props.nextStart ??
                     new Date().toISOString().split("T")[0]}
             </p>
         </div>

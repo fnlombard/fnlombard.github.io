@@ -73,7 +73,7 @@
             iconPath: icons["vastech"]
         },
         {
-            label: "Zenseact",
+            label: "Software Engineer",
             description: "Zenseact, Sweden",
             date_start: "2024-01-01",
             iconPath: icons["zenseact"]

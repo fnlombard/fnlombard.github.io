@@ -7,7 +7,7 @@
     }
 
     const props: timelineProps = $props();
-    let hoveredItem: timelineItem | null = $state(null);
+    let hoveredIndex: number | null = $state(null);
 
     const todayStr = new Date().toISOString().split("T")[0];
 
@@ -36,7 +36,6 @@
             });
         }
 
-        // Add today's date tick
         const todayLeft = ((Date.now() - minTime) / total) * 100;
         ticks.push({
             date: todayStr,
@@ -63,17 +62,19 @@
             </div>
         {/each}
 
-        <!-- Segments, Icons, Hover Info -->
-        {#each props.items as item, i}
-            <TimelineItem
-                {item}
-                index={i}
-                nextStart={props.items[i + 1]?.date_start ?? null}
-                {minTime}
-                {maxTime}
-                active={hoveredItem?.label === item.label}
-                onhover={(item) => (hoveredItem = item)}
-            />
-        {/each}
+        <!-- Entries -->
+        <div class="absolute top-[calc(50%-40px)] left-0 w-full">
+            {#each props.items as item, i}
+                <TimelineItem
+                    {item}
+                    index={i}
+                    nextStart={props.items[i + 1]?.date_start ?? null}
+                    {minTime}
+                    {maxTime}
+                    active={hoveredIndex === i}
+                    onhover={(i) => (hoveredIndex = i)}
+                />
+            {/each}
+        </div>
     </div>
 </div>
