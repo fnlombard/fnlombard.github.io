@@ -10,6 +10,31 @@
             label: "LinkedIn",
             url: "https://www.linkedin.com/in/fnlombard/",
             icon: icons["linkedin"]
+        },
+        {
+            label: "Stellenbosch University",
+            url: "https://ee.sun.ac.za/",
+            icon: icons["stellenbosch"]
+        },
+        {
+            label: "S-PLANE",
+            url: "https://s-plane.com/products/isr-payload-operation/paragonisr/",
+            icon: icons["splane"]
+        },
+        {
+            label: "VASTech",
+            url: "https://www.vastech.co.za/",
+            icon: icons["vastech"]
+        },
+        {
+            label: "Zenseact",
+            url: "https://zenseact.com/our-software/",
+            icon: icons["zenseact"]
+        },
+        {
+            label: "ESL",
+            url: "https://www.esl.sun.ac.za/",
+            icon: icons["esl"]
         }
     ];
 
@@ -51,7 +76,7 @@
 <div class="flex">
     <VerticalNavBar {title} {iconPath} {links} />
     <div class="flex w-full flex-col items-center p-10">
-        <div>This is kinda shit. The timeline was vibe-coded. I will fix it. :/</div>
+        <div class="text-9xl text-red-500">Site is WIP</div>
         <HorizontalTimeline {items} />
     </div>
 </div>
