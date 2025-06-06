@@ -9,29 +9,40 @@
     const props: timelineProps = $props();
     let hoveredItem: timelineItem | null = $state(null);
 
-    const toDate = (dateStr: string) => new Date(dateStr).getTime();
+    const todayStr = new Date().toISOString().split("T")[0];
+
+    const normalizeDate = (dateStr: string) =>
+        dateStr.toLowerCase() === "current" ? todayStr : dateStr;
+
+    const toDate = (dateStr: string) => new Date(normalizeDate(dateStr)).getTime();
 
     const startTimes = props.items.map((item) => toDate(item.date_start));
-    const endTimes = props.items.map((item) => toDate(item.date_end));
+    const endTimes = [...props.items.slice(1).map((item) => toDate(item.date_start)), Date.now()];
 
     const minTime = Math.min(...startTimes);
     const maxTime = Math.max(...endTimes);
 
     function getTickDates(): { date: string; left: number }[] {
         const ticks = [];
-        const start = new Date(minTime);
-        start.setDate(1);
         const total = maxTime - minTime;
-        const current = new Date(start);
-        while (current.getTime() <= maxTime) {
-            const diff = current.getTime() - minTime;
-            const left = (diff / total) * 100;
+
+        for (let i = 0; i < props.items.length; i++) {
+            const item = props.items[i];
+            const start = toDate(item.date_start);
+            const startLeft = ((start - minTime) / total) * 100;
             ticks.push({
-                date: current.toLocaleDateString(undefined, { year: "numeric", month: "short" }),
-                left
+                date: item.date_start,
+                left: startLeft
             });
-            current.setMonth(current.getMonth() + 2);
         }
+
+        // Add today's date tick
+        const todayLeft = ((Date.now() - minTime) / total) * 100;
+        ticks.push({
+            date: todayStr,
+            left: todayLeft
+        });
+
         return ticks;
     }
 </script>
@@ -57,6 +68,7 @@
             <TimelineItem
                 {item}
                 index={i}
+                nextStart={props.items[i + 1]?.date_start ?? null}
                 {minTime}
                 {maxTime}
                 active={hoveredItem?.label === item.label}

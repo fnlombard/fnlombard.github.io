@@ -3,14 +3,16 @@
         label: string;
         description: string;
         date_start: string;
-        date_end: string;
         iconPath: string;
     }
 </script>
 
 <script lang="ts">
+    import Icon from "../icon/Icon.svelte";
+
     interface itemProps {
         item: timelineItem;
+        nextStart: string | null;
         index: number;
         minTime: number;
         maxTime: number;
@@ -22,7 +24,7 @@
 
     const toDate = (d: string) => new Date(d).getTime();
     const start = toDate(props.item.date_start);
-    const end = toDate(props.item.date_end);
+    const end = props.nextStart ? toDate(props.nextStart) : Date.now();
     const total = props.maxTime - props.minTime;
     const left = ((start - props.minTime) / total) * 100;
     const width = ((end - start) / total) * 100;
@@ -44,8 +46,8 @@
     ></div>
 
     <!-- Icon -->
-    <div class="absolute z-20 -translate-x-1/2 -translate-y-1/2" style="top: 50%;">
-        <img src={props.item.iconPath} alt={props.item.label} class="h-6 w-6" />
+    <div class="absolute z-20 h-10 w-10 -translate-x-1/2 -translate-y-1/2" style="top: 50%;">
+        <Icon path={props.item.iconPath} />
     </div>
 
     <!-- Info bubble -->
@@ -56,7 +58,10 @@
             <div class="mx-auto mb-2 h-5 w-px bg-gray-400"></div>
             <strong>{props.item.label}</strong>
             <p class="mt-1 text-sm text-gray-700">{props.item.description}</p>
-            <p class="mt-1 text-xs text-gray-500">{props.item.date_start} - {props.item.date_end}</p>
+            <p class="mt-1 text-xs text-gray-500">
+                {props.item.date_start} - {props.nextStart ??
+                    new Date().toISOString().split("T")[0]}
+            </p>
         </div>
     {/if}
 </div>

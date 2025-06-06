@@ -43,39 +43,47 @@
 
     const items: timelineItem[] = [
         {
-            label: "Project Start",
-            description: "Kickoff meeting with the team.",
-            date_start: "2023-01-01",
-            date_end: "2023-02-01",
-            iconPath: icons["start"]
+            label: "BEng Robitics (Cum Laude)",
+            description: "Stellenbosch University, South Africa",
+            date_start: "2014-01-01",
+            iconPath: icons["stellenbosch"]
         },
         {
-            label: "Development Phase",
-            description: "Development of the main features.",
-            date_start: "2023-02-01",
-            date_end: "2023-05-01",
-            iconPath: icons["development"]
+            label: "MEng Electronic Engineering",
+            description: "Stellenbosch University, South Africa",
+            date_start: "2018-01-01",
+            iconPath: icons["esl"]
         },
         {
-            label: "Testing Phase",
-            description: "Testing and bug fixing.",
-            date_start: "2023-06-01",
-            date_end: "2023-07-01",
-            iconPath: icons["testing"]
+            label: "Software Engineer",
+            description: "S-PLANE, South Africa",
+            date_start: "2020-01-01",
+            iconPath: icons["splane"]
         },
         {
-            label: "Deployment",
-            description: "Deployment to production environment.",
-            date_start: "2023-08-01",
-            date_end: "2023-08-15",
-            iconPath: icons["deployment"]
+            label: "Senior Software Engineer",
+            description: "S-PLANE, South Africa",
+            date_start: "2022-01-01",
+            iconPath: icons["splane"]
+        },
+        {
+            label: "Software Engineer",
+            description: "VASTech, South Africa",
+            date_start: "2022-09-01",
+            iconPath: icons["vastech"]
+        },
+        {
+            label: "Zenseact",
+            description: "Zenseact, Sweden",
+            date_start: "2024-01-01",
+            iconPath: icons["zenseact"]
         }
     ];
 </script>
 
 <div class="flex">
     <VerticalNavBar {title} {iconPath} {links} />
-    <div class="flex w-full flex-col items-center p-10">
+    <div class="flex w-full flex-col items-center bg-gray-800 p-10">
         <div class="text-9xl text-red-500">Site is WIP</div>
         <HorizontalTimeline {items} />
     </div>
