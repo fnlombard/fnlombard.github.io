@@ -55,8 +55,8 @@
     });
 </script>
 
-<div class="relative w-full px-10 py-40">
-    <div class="relative h-4 w-full">
+<div class="relative w-full px-4 py-8">
+    <div class="relative h-3 w-full">
         <!-- Base timeline -->
         <div class="absolute top-1/2 left-0 z-0 h-1 w-full -translate-y-1/2 bg-gray-900"></div>
 
