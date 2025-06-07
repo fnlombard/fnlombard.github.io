@@ -5,6 +5,7 @@
     interface IProps {
         highlighted_id: number | null;
         items: TimelineItem[];
+        highlight_item: (id: number | null) => void;
     }
 
     const props: IProps = $props();
@@ -19,7 +20,12 @@
 </script>
 
 {#each sortedItems as item (item.id)}
-    <div animate:flip={{ duration: 300 }}>
+    <div
+        animate:flip={{ duration: 300 }}
+        onmouseenter={() => props.highlight_item(item.id)}
+        onmouseleave={() => props.highlight_item(null)}
+        role="presentation"
+    >
         <VerticalTimelineItem {item} isSelected={props.highlighted_id === item.id} />
     </div>
 {/each}

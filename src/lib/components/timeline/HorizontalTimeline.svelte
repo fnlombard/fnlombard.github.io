@@ -5,6 +5,7 @@
     interface timelineProps {
         items: TimelineItem[];
         update_selected: (index: number | null) => void;
+        highlighted_id?: number | null;
     }
 
     const props: timelineProps = $props();
@@ -50,8 +51,30 @@
         return ticks;
     }
 
-    const hoveredItem = $derived.by(() => {
+    const highlightedItem = $derived.by(() => {
+        if (props.highlighted_id !== null) {
+            return props.items.find((item) => item.id === props.highlighted_id) || null;
+        }
         return hoveredIndex !== null ? props.items[hoveredIndex] : null;
+    });
+
+    const nextHighlightedItem = $derived.by(() => {
+        if (props.highlighted_id !== null) {
+            const currentIndex = props.items.findIndex((item) => item.id === props.highlighted_id);
+            if (currentIndex !== -1 && currentIndex < props.items.length - 1) {
+                return props.items[currentIndex + 1];
+            }
+            return null;
+        }
+        if (hoveredIndex !== null && hoveredIndex < props.items.length - 1) {
+            return props.items[hoveredIndex + 1];
+        }
+        return null;
+    });
+
+    const selectedIndex = $derived.by(() => {
+        if (highlightedItem === null) return null;
+        return props.items.findIndex((item) => item.id === highlightedItem.id);
     });
 </script>
 
@@ -80,23 +103,22 @@
                     nextStart={props.items[i + 1]?.date_start ?? null}
                     {minTime}
                     {maxTime}
-                    active={hoveredIndex === i}
+                    active={hoveredIndex === i || props.highlighted_id === item.id}
                     onhover={(i) => (hoveredIndex = i)}
                 />
             {/each}
         </div>
 
         <!-- Highlighted segment when hovering -->
-        {#if hoveredIndex !== null}
+        {#if hoveredIndex !== null || highlightedItem !== null}
             <div
                 class="absolute top-1/2 z-10 h-1 -translate-y-1/2 rounded bg-amber-100"
                 style="
-                left: {((toDate(props.items[hoveredIndex].date_start) - minTime) / totalTime) *
-                    100}%;
-                width: {(((hoveredIndex < props.items.length - 1
-                    ? toDate(props.items[hoveredIndex + 1].date_start)
+                left: {((toDate(highlightedItem!.date_start) - minTime) / totalTime) * 100}%;
+                width: {(((selectedIndex! < props.items.length - 1
+                    ? toDate(props.items[selectedIndex! + 1].date_start)
                     : Date.now()) -
-                    toDate(props.items[hoveredIndex].date_start)) /
+                    toDate(highlightedItem!.date_start)) /
                     totalTime) *
                     100}%;"
                 transition:fade={{ duration: 150 }}
