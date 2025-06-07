@@ -21,7 +21,7 @@
 
 {#each sortedItems as item (item.id)}
     <div
-        animate:flip={{ duration: 300 }}
+        animate:flip={{ duration: 700 }}
         onmouseenter={() => props.highlight_item(item.id)}
         onmouseleave={() => props.highlight_item(null)}
         role="presentation"

@@ -29,12 +29,17 @@
             flyX = "200";
         }
     });
+
+    function mouseEnter(): void {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        props.onhover(props.index);
+    }
 </script>
 
 <button
     class="absolute cursor-pointer"
     style="left: {left}%;"
-    onmouseenter={() => props.onhover(props.index)}
+    onmouseenter={() => mouseEnter()}
     onmouseleave={() => props.onhover(null)}
     onclick={() => {
         if (props.item.url) {
