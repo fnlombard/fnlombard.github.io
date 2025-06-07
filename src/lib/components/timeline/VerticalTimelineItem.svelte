@@ -17,7 +17,10 @@
 
     <!-- Card -->
     <div class="mb-4 flex-1 rounded bg-gray-700 p-4 text-white shadow">
-        <div class="text-lg font-bold">{props.item.title} - {props.item.institution}</div>
+        <div class="flex justify-between text-lg font-bold">
+            <div>{props.item.title}</div>
+            <div>{props.item.institution}</div>
+        </div>
         <div class="mt-1 text-sm">{props.item.description}</div>
         {#each props.item.responsibilities as responsibility}
             <div class="mt-1 text-sm text-gray-200">- {responsibility}</div>
