@@ -1,5 +1,6 @@
 <script module lang="ts">
     export interface timelineItem {
+        id: number;
         label: string;
         description: string;
         date_start: string;

@@ -4,10 +4,15 @@
 
     interface timelineProps {
         items: timelineItem[];
+        update_selected: (index: number | null) => void;
     }
 
     const props: timelineProps = $props();
     let hoveredIndex: number | null = $state(null);
+
+    $effect(() => {
+        props.update_selected(hoveredIndex);
+    });
 
     const todayStr = new Date().toISOString().split("T")[0];
 
