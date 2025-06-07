@@ -12,7 +12,8 @@ interface Link {
 
 interface TimelineItem {
     id: number;
-    label: string;
+    title: string;
+    institution: string;
     short_description: string;
     description: string;
     responsibilities: string[];

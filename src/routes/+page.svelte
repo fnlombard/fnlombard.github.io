@@ -18,7 +18,8 @@
     const items: TimelineItem[] = [
         {
             id: 0,
-            label: "BEng Robitics (Cum Laude)",
+            title: "BEng Robitics (Cum Laude)",
+            institution: "Stellenbosch University",
             short_description: "Stellenbosch University, ZA",
             description: "Long Description",
             responsibilities: ["List Item 1", "List Item 2"],
@@ -29,7 +30,8 @@
         },
         {
             id: 1,
-            label: "MEng Electronic Engineering",
+            title: "MEng Electronic Engineering",
+            institution: "Electronic Systems Laboratory",
             short_description: "Stellenbosch University, ZA",
             description: "Long Description",
             responsibilities: ["List Item 1", "List Item 2"],
@@ -40,7 +42,8 @@
         },
         {
             id: 2,
-            label: "Software Engineer",
+            title: "Software Engineer",
+            institution: "S-PLANE",
             short_description: "S-PLANE, ZA",
             description: "Long Description",
             responsibilities: ["List Item 1", "List Item 2"],
@@ -51,7 +54,8 @@
         },
         {
             id: 3,
-            label: "Software Engineer",
+            title: "Software Engineer",
+            institution: "VASTech",
             short_description: "VASTech, ZA",
             description: "Long Description",
             responsibilities: ["List Item 1", "List Item 2"],
@@ -62,7 +66,8 @@
         },
         {
             id: 4,
-            label: "Software Engineer",
+            title: "Software Engineer",
+            institution: "Zenseact",
             short_description: "Zenseact, SE",
             description: "Long Description",
             responsibilities: ["List Item 1", "List Item 2"],
