@@ -26,14 +26,14 @@
             <div class="mt-1 text-sm text-gray-200">- {responsibility}</div>
         {/each}
         {#if props.item.technologies.length > 0}
-            <div class="mt-2 text-sm font-semibold">Technologies:</div>
+            <div class="my-2 text-sm font-semibold">Technologies:</div>
             <div class="flex flex-wrap gap-2">
                 {#each props.item.technologies as tech}
                     <span class="rounded bg-gray-600 px-2 py-1 text-xs">{tech}</span>
                 {/each}
             </div>
         {/if}
-        {#if props.item.url}
+        <!-- {#if props.item.url}
             <a
                 href={props.item.url}
                 target="_blank"
@@ -41,6 +41,6 @@
             >
                 More Info
             </a>
-        {/if}
+        {/if} -->
     </div>
 </div>
