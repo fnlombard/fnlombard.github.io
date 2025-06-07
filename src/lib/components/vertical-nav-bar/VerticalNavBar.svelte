@@ -12,6 +12,7 @@
         title: string;
         iconPath: string;
         links: Link[];
+        updateWidth: (width: string) => void;
     }
 
     let props: navProps = $props();
@@ -20,6 +21,7 @@
 
     function toggleCollapse() {
         collapsed = !collapsed;
+        props.updateWidth(width);
     }
 
     const initials = $derived.by(() => {
@@ -41,7 +43,7 @@
 
 <div
     style="width: {width};"
-    class={`sticky top-0 flex min-h-screen flex-col items-center bg-gray-900 p-4 text-white transition-all duration-300`}
+    class={`fixed top-0 left-0 z-30 flex h-screen min-h-screen flex-col items-center bg-gray-900 p-4 text-white transition-all duration-300`}
 >
     <button class="cursor-pointer" onclick={toggleCollapse}>
         <img class="w-full" src={props.iconPath} alt="avatar" />

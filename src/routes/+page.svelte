@@ -157,11 +157,18 @@
             url: "https://zenseact.com/our-software/"
         }
     ];
+
+    let width = $state("12rem");
+    function updateWidth(newWidth: string): void {
+        // This function can be used to update the width of the timeline if needed
+        console.log("New width:", newWidth);
+        width = newWidth;
+    }
 </script>
 
-<div class="flex">
-    <VerticalNavBar {title} {iconPath} {links} />
+<main class="flex transition-all duration-300" style="margin-left: {width};">
+    <VerticalNavBar {title} {iconPath} {links} {updateWidth} />
     <div class="flex w-full flex-col items-center bg-gray-800 px-8">
         <Timeline {items} />
     </div>
-</div>
+</main>
