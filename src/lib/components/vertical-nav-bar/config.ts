@@ -16,7 +16,7 @@ export class ComponentConfig {
     static default(): ComponentConfig {
         return new ComponentConfig({
             min_width_rem: 24,
-            max_width_rem: 64,
+            max_width_rem: 64
         });
     }
 }

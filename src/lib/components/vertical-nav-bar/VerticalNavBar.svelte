@@ -41,7 +41,7 @@
 
 <div
     style="width: {width};"
-    class={`flex h-screen flex-col items-center bg-gray-900 p-4 text-white transition-all duration-300`}
+    class={`flex min-h-screen flex-col items-center bg-gray-900 p-4 text-white transition-all duration-300`}
 >
     <button class="cursor-pointer" onclick={toggleCollapse}>
         <img class="w-full" src={props.iconPath} alt="avatar" />
