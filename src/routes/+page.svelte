@@ -81,7 +81,7 @@
 
 <div class="flex">
     <VerticalNavBar {title} {iconPath} {links} />
-    <div class="flex w-full flex-col items-center bg-gray-800 p-10">
+    <div class="flex w-full flex-col items-center bg-gray-800 px-8">
         <Timeline {items} />
     </div>
 </div>

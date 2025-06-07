@@ -58,27 +58,13 @@
         return hoveredIndex !== null ? props.items[hoveredIndex] : null;
     });
 
-    const nextHighlightedItem = $derived.by(() => {
-        if (props.highlighted_id !== null) {
-            const currentIndex = props.items.findIndex((item) => item.id === props.highlighted_id);
-            if (currentIndex !== -1 && currentIndex < props.items.length - 1) {
-                return props.items[currentIndex + 1];
-            }
-            return null;
-        }
-        if (hoveredIndex !== null && hoveredIndex < props.items.length - 1) {
-            return props.items[hoveredIndex + 1];
-        }
-        return null;
-    });
-
     const selectedIndex = $derived.by(() => {
         if (highlightedItem === null) return null;
         return props.items.findIndex((item) => item.id === highlightedItem.id);
     });
 </script>
 
-<div class="relative w-full px-4 py-8">
+<div class="relative w-full px-4 pt-20 pb-4">
     <div class="relative h-3 w-full">
         <!-- Base timeline -->
         <div class="absolute top-1/2 left-0 z-0 h-1 w-full -translate-y-1/2 bg-gray-900"></div>
@@ -112,7 +98,7 @@
         <!-- Highlighted segment when hovering -->
         {#if hoveredIndex !== null || highlightedItem !== null}
             <div
-                class="absolute top-1/2 z-10 h-1 -translate-y-1/2 rounded bg-amber-100"
+                class="absolute top-1/2 z-10 h-1.5 -translate-y-1/2 rounded bg-amber-100"
                 style="
                 left: {((toDate(highlightedItem!.date_start) - minTime) / totalTime) * 100}%;
                 width: {(((selectedIndex! < props.items.length - 1

@@ -12,13 +12,15 @@
 </script>
 
 <div class="flex w-full flex-col">
-    <HorizontalTimeline
-        items={props.items}
-        update_selected={(index) => {
-            selectedIndex = index;
-        }}
-        {highlighted_id}
-    />
+    <div class="sticky top-0 z-10 h-30 bg-gray-800">
+        <HorizontalTimeline
+            items={props.items}
+            update_selected={(index) => {
+                selectedIndex = index;
+            }}
+            {highlighted_id}
+        />
+    </div>
     <VerticalTimeline
         items={props.items}
         highlight_item={(id) => {
