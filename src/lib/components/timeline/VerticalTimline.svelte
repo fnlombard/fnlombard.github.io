@@ -1,16 +1,10 @@
-<script module lang="ts">
-    export interface ShuffleItem {
-        id: number;
-        content: string;
-    }
-</script>
-
 <script lang="ts">
     import { flip } from "svelte/animate";
+    import type { timelineItem } from "./TimelineItem.svelte";
 
     interface IProps {
         highlighted_id: number | null;
-        items: ShuffleItem[];
+        items: timelineItem[];
     }
 
     const props: IProps = $props();
@@ -26,6 +20,6 @@
 
 {#each sortedItems as item (item.id)}
     <div class="mb-2 rounded bg-gray-700 p-2 text-white shadow" animate:flip>
-        <p>{item.content}</p>
+        <p>{item.label}</p>
     </div>
 {/each}

@@ -2,7 +2,10 @@
     export interface timelineItem {
         id: number;
         label: string;
+        short_description: string;
         description: string;
+        responsibilities: string[];
+        technologies: string[];
         date_start: string;
         iconPath: string;
         url: string;
@@ -73,7 +76,7 @@
             transition:fly={{ duration: 200, x: flyX, opacity: 0, easing: backOut }}
         >
             <p class="text-gray-100">{props.item.label}</p>
-            <p class="mt-1 text-sm text-gray-300">{props.item.description}</p>
+            <p class="mt-1 text-sm text-gray-300">{props.item.short_description}</p>
             <p class="mt-1 text-xs text-gray-400">
                 {props.item.date_start} -- {props.nextStart ??
                     new Date().toISOString().split("T")[0]}
