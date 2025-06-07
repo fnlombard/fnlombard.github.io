@@ -1,5 +1,6 @@
 <script lang="ts">
     import HorizontalTimelineItem from "./HorizontalTimelineItem.svelte";
+    import { fade } from "svelte/transition";
 
     interface timelineProps {
         items: TimelineItem[];
@@ -25,22 +26,22 @@
 
     const minTime = Math.min(...startTimes);
     const maxTime = Math.max(...endTimes);
+    const totalTime = maxTime - minTime;
 
     function getTickDates(): { date: string; left: number }[] {
         const ticks = [];
-        const total = maxTime - minTime;
 
         for (let i = 0; i < props.items.length; i++) {
             const item = props.items[i];
             const start = toDate(item.date_start);
-            const startLeft = ((start - minTime) / total) * 100;
+            const startLeft = ((start - minTime) / totalTime) * 100;
             ticks.push({
                 date: item.date_start,
                 left: startLeft
             });
         }
 
-        const todayLeft = ((Date.now() - minTime) / total) * 100;
+        const todayLeft = ((Date.now() - minTime) / totalTime) * 100;
         ticks.push({
             date: todayStr,
             left: todayLeft
@@ -48,6 +49,10 @@
 
         return ticks;
     }
+
+    const hoveredItem = $derived.by(() => {
+        return hoveredIndex !== null ? props.items[hoveredIndex] : null;
+    });
 </script>
 
 <div class="relative w-full px-10 py-40">
@@ -80,5 +85,22 @@
                 />
             {/each}
         </div>
+
+        <!-- Highlighted segment when hovering -->
+        {#if hoveredIndex !== null}
+            <div
+                class="absolute top-1/2 z-10 h-1 -translate-y-1/2 rounded bg-amber-100"
+                style="
+                left: {((toDate(props.items[hoveredIndex].date_start) - minTime) / totalTime) *
+                    100}%;
+                width: {(((hoveredIndex < props.items.length - 1
+                    ? toDate(props.items[hoveredIndex + 1].date_start)
+                    : Date.now()) -
+                    toDate(props.items[hoveredIndex].date_start)) /
+                    totalTime) *
+                    100}%;"
+                transition:fade={{ duration: 150 }}
+            ></div>
+        {/if}
     </div>
 </div>

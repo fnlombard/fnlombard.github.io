@@ -82,7 +82,6 @@
 <div class="flex">
     <VerticalNavBar {title} {iconPath} {links} />
     <div class="flex w-full flex-col items-center bg-gray-800 p-10">
-        <div class="text-9xl text-red-500">Site is WIP</div>
         <Timeline {items} />
     </div>
 </div>

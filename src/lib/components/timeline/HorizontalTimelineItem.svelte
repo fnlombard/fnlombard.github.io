@@ -1,8 +1,6 @@
 <script lang="ts">
     import Icon from "$lib/components/icon/Icon.svelte";
     import { onMount } from "svelte";
-    import { fly } from "svelte/transition";
-    import { backOut } from "svelte/easing";
 
     interface itemProps {
         item: TimelineItem;
@@ -44,29 +42,7 @@
         }
     }}
 >
-    <!-- Segment -->
-    <div
-        class="absolute z-10 h-2 rounded bg-blue-500"
-        style="width: {width}%; top: calc(50% - 12px);"
-    ></div>
-
-    <!-- Icon -->
     <div class="absolute z-20 h-10 w-10 -translate-x-1/2 -translate-y-1/2" style="top: 50%;">
         <Icon path={props.item.iconPath} is_focused={props.active} />
     </div>
-
-    <!-- Info bubble -->
-    {#if props.active}
-        <div
-            class="{bubblePosition} absolute z-30 w-60 -translate-y-1/2 rounded bg-gray-900 p-4 text-center whitespace-nowrap shadow-lg shadow-slate-500"
-            transition:fly={{ duration: 200, x: flyX, opacity: 0, easing: backOut }}
-        >
-            <p class="text-gray-100">{props.item.title}</p>
-            <p class="mt-1 text-sm text-gray-300">{props.item.short_description}</p>
-            <p class="mt-1 text-xs text-gray-400">
-                {props.item.date_start} -- {props.nextStart ??
-                    new Date().toISOString().split("T")[0]}
-            </p>
-        </div>
-    {/if}
 </button>

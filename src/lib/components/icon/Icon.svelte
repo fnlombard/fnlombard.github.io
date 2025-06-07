@@ -20,7 +20,7 @@
 
     <!-- Fill SVG -->
     <svg
-        class="absolute h-full w-full fill-amber-100 transition-opacity duration-300"
+        class="absolute h-full w-full fill-amber-100 drop-shadow-sm drop-shadow-amber-100 transition-opacity duration-300"
         class:opacity-0={!props.is_focused}
         class:opacity-100={props.is_focused}
         xmlns="http://www.w3.org/2000/svg"
