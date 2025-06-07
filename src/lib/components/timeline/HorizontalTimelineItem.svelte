@@ -1,17 +1,3 @@
-<script module lang="ts">
-    export interface timelineItem {
-        id: number;
-        label: string;
-        short_description: string;
-        description: string;
-        responsibilities: string[];
-        technologies: string[];
-        date_start: string;
-        iconPath: string;
-        url: string;
-    }
-</script>
-
 <script lang="ts">
     import Icon from "$lib/components/icon/Icon.svelte";
     import { onMount } from "svelte";
@@ -19,7 +5,7 @@
     import { backOut } from "svelte/easing";
 
     interface itemProps {
-        item: timelineItem;
+        item: TimelineItem;
         nextStart: string | null;
         index: number;
         minTime: number;

@@ -1,10 +1,9 @@
 <script lang="ts">
     import HorizontalTimeline from "./HorizontalTimeline.svelte";
-    import type { timelineItem } from "./TimelineItem.svelte";
     import VerticalTimline from "./VerticalTimline.svelte";
 
     interface timelineProps {
-        items: timelineItem[];
+        items: TimelineItem[];
     }
 
     const props: timelineProps = $props();

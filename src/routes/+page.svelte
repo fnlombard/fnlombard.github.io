@@ -1,7 +1,6 @@
 <script lang="ts">
     import { icons } from "$lib/icons";
     import VerticalNavBar from "$lib/components/vertical-nav-bar/VerticalNavBar.svelte";
-    import type { timelineItem } from "$lib/components/timeline/TimelineItem.svelte";
     import Timeline from "$lib/components/timeline/Timeline.svelte";
 
     const links: Link[] = [
@@ -16,7 +15,7 @@
     const iconPath = "/favicon.png";
     const title = "Francois Lombard";
 
-    const items: timelineItem[] = [
+    const items: TimelineItem[] = [
         {
             id: 0,
             label: "BEng Robitics (Cum Laude)",

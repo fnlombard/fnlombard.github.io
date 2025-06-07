@@ -1,9 +1,8 @@
 <script lang="ts">
-    import TimelineItem from "./TimelineItem.svelte";
-    import type { timelineItem } from "./TimelineItem.svelte";
+    import HorizontalTimelineItem from "./HorizontalTimelineItem.svelte";
 
     interface timelineProps {
-        items: timelineItem[];
+        items: TimelineItem[];
         update_selected: (index: number | null) => void;
     }
 
@@ -70,7 +69,7 @@
         <!-- Entries -->
         <div class="absolute top-[calc(50%-40px)] left-0 w-full">
             {#each props.items as item, i}
-                <TimelineItem
+                <HorizontalTimelineItem
                     {item}
                     index={i}
                     nextStart={props.items[i + 1]?.date_start ?? null}

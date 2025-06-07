@@ -1,10 +1,10 @@
 <script lang="ts">
     import { flip } from "svelte/animate";
-    import type { timelineItem } from "./TimelineItem.svelte";
+    import VerticalTimelineItem from "./VerticalTimelineItem.svelte";
 
     interface IProps {
         highlighted_id: number | null;
-        items: timelineItem[];
+        items: TimelineItem[];
     }
 
     const props: IProps = $props();
@@ -19,7 +19,7 @@
 </script>
 
 {#each sortedItems as item (item.id)}
-    <div class="mb-2 rounded bg-gray-700 p-2 text-white shadow" animate:flip>
-        <p>{item.label}</p>
+    <div animate:flip={{ duration: 300 }}>
+        <VerticalTimelineItem {item} isSelected={props.highlighted_id === item.id} />
     </div>
 {/each}
