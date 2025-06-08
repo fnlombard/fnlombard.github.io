@@ -13,12 +13,13 @@ interface Link {
 interface TimelineItem {
     id: number;
     title: string;
-    institution: string;
+    organization: string;
     short_description: string;
     description: string;
-    responsibilities: string[];
-    technologies: string[];
+    highlights: string[];
+    growth_points: string[];
     date_start: string;
+    date_end: string;
     iconPath: string;
     url: string;
 }
