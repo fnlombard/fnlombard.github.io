@@ -11,7 +11,7 @@
     let highlighted_id: number | null = $state(null);
 </script>
 
-<div class="flex w-full flex-col">
+<div class="flex flex-col">
     <div class="sticky top-0 z-10 h-30 bg-gray-800">
         <HorizontalTimeline
             items={props.items}

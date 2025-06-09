@@ -31,7 +31,7 @@
     }
 </script>
 
-<div class="flex flex-col gap-4">
+<div class="mt-4 flex flex-col">
     {#each sortedItems as item (item.id)}
         <div
             animate:flip={{ duration: 700 }}
@@ -43,6 +43,7 @@
                 {item}
                 isSelected={props.highlighted_id === item.id || highlighted_id === item.id}
             />
+            <div class="h-6 w-full bg-gray-800"></div>
         </div>
     {/each}
 </div>

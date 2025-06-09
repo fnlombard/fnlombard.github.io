@@ -1,14 +1,15 @@
 [
     {
-        "title": "BEng Robitics (Cum Laude)",
+        "title": "BEng Robotics (Cum Laude)",
         "organization": "Stellenbosch University",
         "short_description": "Stellenbosch University, ZA",
-        "description": "I did some things here.",
+        "description": "Attended a four year undergraduate programme in Electronic Engineering with a focus on Robotics. During my free time I played field hockey and squash and participated in ballroom dancing.",
         "highlights": [
             "83% average. Received Dean’s Merit for most 3rd and 4th-year modules.",
+            "Dissertation: Design and Build of an Amateur Satellite Ground Station",
             "Teaching demonstrator for first and second year engineering mathematics.",
-            "Internship at VASTech: Identified unknown signals' framing, modulation, and coding using MATLAB.",
-            "Internship at VASTech: Assisted in AfrikaBurn location planning, exporting camp GPS coordinates using JavaFX."
+            "VASTech Internship 2016: Develop JavaFX AfrikaBurn campsite location planning and exporting its GPS coordinates to Garmin devices.",
+            "VASTech Internship 2017: Identified unknown signals' framing, modulation, and coding using MATLAB."
         ],
         "growth_points": [
             "Electromagnetics and Antenna Design",
@@ -17,7 +18,15 @@
             "Analogue Micro Electronics",
             "Power Electronics",
             "Computer Embedded Systems",
-            "FPGA & VHDL"
+            "FPGA & VHDL",
+            "Computer Science",
+            "Applied Mathematics",
+            "Engineering Mathematics",
+            "Electronic Design",
+            "Project Management",
+            "Philosophy and Ethics",
+            "Entrepreneurship",
+            "Environmental Engineering"
         ],
         "date_start": "2014-01-01",
         "date_end": "2017-12-31",
@@ -28,7 +37,7 @@
         "title": "MEng Electronic Engineering",
         "organization": "Electronic Systems Laboratory",
         "short_description": "Stellenbosch University, ZA",
-        "description": "Full-time two-year thesis programme: http://hdl.handle.net/10019.1/107946",
+        "description": "Full-time two-year thesis programme: http://hdl.handle.net/10019.1/107946. During my free time I tutored first- and second-year engineering mathematics. I also taught grade 7 pupils fundamentals of robotics and programming. I played field hockey and squash and participated in ballroom dancing.",
         "highlights": [
             "70% average. Satellite Systems 813 with a 79% grade.",
             "Co-author: Mining Surveillance Application Using a CubeSat Constellation",
@@ -40,7 +49,8 @@
             "Classical Computer Vision",
             "Satellite System Design",
             "Research",
-            "Signal Processing"
+            "Signal Processing",
+            "Simulation"
         ],
         "date_start": "2018-01-01",
         "date_end": "2019-12-31",
@@ -51,11 +61,11 @@
         "title": "Software Engineer",
         "organization": "S-PLANE",
         "short_description": "S-PLANE, ZA",
-        "description": "Long Description",
+        "description": "Built internal tools for synchronizing multiple git repositories for managing software releases. Built a Microsoft Word plugin for requirement tracing. For fun I participated in table tennis and pool tournaments and was an announcer for an internal Counter Strike tournament.",
         "highlights": [
-            "Explored HMI software for aircraft cockpits.",
+            "Integrated AIS and ARGOS-II systems, enabling data handling from datasheets to UIs.",
             "Engineered Paragon, a mission-and-aircraft management application.",
-            "Integrated AIS and ARGOS-II systems, enabling data handling from datasheets to UIs."
+            "Explored HMI software for aircraft cockpits."
         ],
         "growth_points": [
             "C++11",
@@ -80,7 +90,7 @@
         "title": "Software Engineer",
         "organization": "VASTech",
         "short_description": "VASTech, ZA",
-        "description": "Long Description",
+        "description": "Did my best lol. Was short but learnt a lot. Learnt system engineering through INCOSE GYSEOY.",
         "highlights": [
             "Maintained and adapted internal tools for external deployment.",
             "Designed and developed web UIs, facilitating petabyte-scale data analysis.",
@@ -114,7 +124,7 @@
         "title": "Software Engineer",
         "organization": "Zenseact",
         "short_description": "Zenseact, SE",
-        "description": "Long Description",
+        "description": "Let's go still trying my best.",
         "highlights": [
             "Maintain and innovate HIL testing frameworks.",
             "Provide internal support to framework users and troubleshoot HIL failures."

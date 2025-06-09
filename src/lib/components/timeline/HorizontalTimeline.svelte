@@ -29,27 +29,16 @@
     const maxTime = Math.max(...endTimes);
     const totalTime = maxTime - minTime;
 
-    function getTickDates(): { date: string; left: number }[] {
-        const ticks = [];
-
-        for (let i = 0; i < props.items.length; i++) {
-            const item = props.items[i];
-            const start = toDate(item.date_start);
-            const startLeft = ((start - minTime) / totalTime) * 100;
-            ticks.push({
+    const getTickDates = (): { date: string; left: number }[] =>
+        props.items
+            .map((item) => ({
                 date: item.date_start,
-                left: startLeft
+                left: ((toDate(item.date_start) - minTime) / totalTime) * 100
+            }))
+            .concat({
+                date: todayStr,
+                left: ((Date.now() - minTime) / totalTime) * 100
             });
-        }
-
-        const todayLeft = ((Date.now() - minTime) / totalTime) * 100;
-        ticks.push({
-            date: todayStr,
-            left: todayLeft
-        });
-
-        return ticks;
-    }
 
     const highlightedItem = $derived.by(() => {
         if (props.highlighted_id !== null) {
@@ -96,15 +85,15 @@
         </div>
 
         <!-- Highlighted segment when hovering -->
-        {#if hoveredIndex !== null || highlightedItem !== null}
+        {#if highlightedItem}
             <div
                 class="absolute top-1/2 z-10 h-1.5 -translate-y-1/2 rounded bg-amber-100"
                 style="
-                left: {((toDate(highlightedItem!.date_start) - minTime) / totalTime) * 100}%;
-                width: {(((selectedIndex! < props.items.length - 1
-                    ? toDate(props.items[selectedIndex! + 1].date_start)
+            left: {((toDate(highlightedItem.date_start) - minTime) / totalTime) * 100}%;
+            width: {(((selectedIndex! < props.items.length - 1
+                    ? toDate(highlightedItem.date_end)
                     : Date.now()) -
-                    toDate(highlightedItem!.date_start)) /
+                    toDate(highlightedItem.date_start)) /
                     totalTime) *
                     100}%;"
                 transition:fade={{ duration: 150 }}
