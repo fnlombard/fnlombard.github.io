@@ -27,9 +27,9 @@
     }
 </script>
 
-<main class="flex max-h-full max-w-full transition-all duration-300" style="margin-left: {width};">
+<main class="flex transition-all duration-300" style="margin-left: {width};">
     <VerticalNavBar {title} {iconPath} {links} {updateWidth} />
-    <div class="flex w-full flex-col items-center bg-gray-800 px-8">
+    <div class="px-8">
         <Timeline {items} />
     </div>
 </main>

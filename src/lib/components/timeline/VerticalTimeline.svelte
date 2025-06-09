@@ -17,15 +17,32 @@
             ...props.items.filter((item) => item.id !== props.highlighted_id)
         ];
     });
+
+    let highlighted_id: number | null = $state(null);
+
+    function mouseEnter(id: number | null): void {
+        highlighted_id = id;
+        props.highlight_item(id);
+    }
+
+    function mouseLeave(): void {
+        highlighted_id = null;
+        props.highlight_item(null);
+    }
 </script>
 
-{#each sortedItems as item (item.id)}
-    <div
-        animate:flip={{ duration: 700 }}
-        onmouseenter={() => props.highlight_item(item.id)}
-        onmouseleave={() => props.highlight_item(null)}
-        role="presentation"
-    >
-        <VerticalTimelineItem {item} isSelected={props.highlighted_id === item.id} />
-    </div>
-{/each}
+<div class="flex flex-col gap-4">
+    {#each sortedItems as item (item.id)}
+        <div
+            animate:flip={{ duration: 700 }}
+            onmouseenter={() => mouseEnter(item.id)}
+            onmouseleave={() => mouseLeave()}
+            role="presentation"
+        >
+            <VerticalTimelineItem
+                {item}
+                isSelected={props.highlighted_id === item.id || highlighted_id === item.id}
+            />
+        </div>
+    {/each}
+</div>
