@@ -16,8 +16,8 @@
     ];
 
     const navigation_links: Link[] = [
-        { label: "Resume", url: "/", icon: icons["home"] },
-        { label: "Personal", url: "/personal", icon: icons["cv"] }
+        { label: "Resume", url: "/", icon: icons["resume"] },
+        { label: "Personal", url: "/personal", icon: icons["personal"] }
     ];
 
     const iconPath = "/favicon.png";
