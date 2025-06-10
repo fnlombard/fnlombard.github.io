@@ -7,17 +7,21 @@
         disabled?: boolean;
         iconPath?: string;
         collapsed?: boolean;
+        isSelected?: boolean;
     }
 
     const props: buttonProps = $props();
 
     let is_focused = $state(false);
+    $effect(() => {
+        is_focused = props.isSelected ?? false;
+    });
 
-    function mouseEnter() {
+    function mouseEnter(): void {
         is_focused = true;
     }
-    function mouseLeave() {
-        is_focused = false;
+    function mouseLeave(): void {
+        is_focused = props.isSelected ?? false;
     }
 </script>
 

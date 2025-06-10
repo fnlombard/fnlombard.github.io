@@ -40,6 +40,12 @@
         const width = collapsed ? config.min_width_rem : config.max_width_rem;
         return width + "rem";
     });
+
+    let selected_menu_item_index = $state(0);
+
+    function selectMenuItem(index: number) {
+        selected_menu_item_index = index;
+    }
 </script>
 
 <div
@@ -63,9 +69,15 @@
     <hr class="my-4 w-full border-gray-700" />
 
     <div class="w-full">
-        {#each props.navigation_links as link}
-            <a href={link.url}>
-                <Button label={link.label} disabled={false} iconPath={link.icon} {collapsed} />
+        {#each props.navigation_links as link, index}
+            <a href={link.url} onclick={() => selectMenuItem(index)}>
+                <Button
+                    label={link.label}
+                    disabled={false}
+                    iconPath={link.icon}
+                    {collapsed}
+                    isSelected={selected_menu_item_index === index}
+                />
             </a>
         {/each}
     </div>
