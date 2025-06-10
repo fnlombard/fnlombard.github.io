@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Live Streaming",
+        "organization": "Twitch",
+        "short_description": "Live streaming on Twitch",
+        "description": "I started streaming on Twitch and I have 250 followers.",
+        "highlights": [
+            "Affiliated with Twitch 3 June 2022"
+        ],
+        "growth_points": [
+            "Face Anxiety"
+        ],
+        "date_start": "2022-02-27",
+        "date_end": "current",
+        "url": "https://www.twitch.tv/",
+        "iconPath": "M 3.1889377,0.78125 1.5862625,4.7874247 V 20.014176 h 4.8062001 v 3.204574 h 3.2053503 l 3.2035251,-3.204574 h 4.004863 l 5.607536,-5.609375 V 0.78125 Z M 4.7897875,3.1860504 H 20.01155 V 13.6032 L 16.8062,16.807775 H 12 L 8.7964754,20.014176 V 16.807775 H 4.7897875 Z M 9.5978129,6.3413238 V 12.8016 H 12.000001 V 6.3413238 Z m 5.6075381,0 V 12.8016 h 2.402187 V 6.3413238 Z"
+    }
+]
