@@ -11,7 +11,8 @@
     interface navProps {
         title: string;
         iconPath: string;
-        links: Link[];
+        external_links: Link[];
+        navigation_links: Link[];
         updateWidth: (width: string) => void;
     }
 
@@ -62,7 +63,17 @@
     <hr class="my-4 w-full border-gray-700" />
 
     <div class="w-full">
-        {#each props.links as link}
+        {#each props.navigation_links as link}
+            <a href={link.url}>
+                <Button label={link.label} disabled={false} iconPath={link.icon} {collapsed} />
+            </a>
+        {/each}
+    </div>
+
+    <hr class="my-4 w-full border-gray-700" />
+
+    <div class="w-full">
+        {#each props.external_links as link}
             <a href={link.url} target="_blank">
                 <Button label={link.label} disabled={false} iconPath={link.icon} {collapsed} />
             </a>
