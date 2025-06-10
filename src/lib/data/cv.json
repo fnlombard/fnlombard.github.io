@@ -3,9 +3,10 @@
         "title": "BEng Robotics (Cum Laude)",
         "organization": "Stellenbosch University",
         "short_description": "Stellenbosch University, ZA",
-        "description": "Attended a four year undergraduate programme in Electronic Engineering with a focus on Robotics. During my free time I played field hockey and squash and participated in ballroom dancing.",
+        "description": "Four-year undergraduate programme in Electronic Engineering with a focus on Robotics. During my free time I played field hockey and squash, and participated in ballroom dancing.",
         "highlights": [
-            "83% average. Received Dean’s Merit for most 3rd and 4th-year modules.",
+            "83% average.",
+            "Received Dean’s Merit for most 3rd and 4th-year modules.",
             "Dissertation: Design and Build of an Amateur Satellite Ground Station",
             "Teaching demonstrator for first and second year engineering mathematics.",
             "VASTech Internship 2016: Develop JavaFX AfrikaBurn campsite location planning and exporting its GPS coordinates to Garmin devices.",
@@ -14,7 +15,7 @@
         "growth_points": [
             "Electromagnetics and Antenna Design",
             "Digital Signal Processing and Filters",
-            "Nonlinear Control Systems",
+            "Non-linear Control Systems",
             "Analogue Micro Electronics",
             "Power Electronics",
             "Computer Embedded Systems",
@@ -26,10 +27,17 @@
             "Project Management",
             "Philosophy and Ethics",
             "Entrepreneurship",
-            "Environmental Engineering"
+            "Environmental Engineering",
+            "MATLAB",
+            "Java",
+            "C",
+            "Assembly",
+            "Git",
+            "JavaFX",
+            "LaTeX"
         ],
-        "date_start": "2014-01-01",
-        "date_end": "2017-12-31",
+        "date_start": "2014-01-20",
+        "date_end": "2017-12-01",
         "url": "https://ee.sun.ac.za/",
         "iconPath": "m 5.2780367,0.51310371 c -0.00113,0.00273 -0.00286,0.00527 -0.00399,0.00799 h 4.0149909 z m 4.0110009,0.00799 C 7.6158618,4.2970457 6.9451221,7.2132891 11.27954,11.644762 c 4.334417,4.431472 5.164702,8.937973 0.473645,11.845124 6.216009,-0.591823 9.41044,-7.756363 4.658509,-12.4107 C 11.659763,6.4248491 11.31512,4.2244027 13.381965,0.52109771 Z m -4.0149976,0 -1.0991766,2.6e-6 V 12.855856 c 0,11.431434 9.9734966,8.074185 5.0682022,2.797903 C 4.3410334,10.380986 3.5866118,4.6219594 5.27404,0.52109821 Z m 14.551097,-0.006 c -1.737482,0 -7.317416,1.89273589 0,8.86935409 z"
     },
@@ -37,9 +45,10 @@
         "title": "MEng Electronic Engineering",
         "organization": "Electronic Systems Laboratory",
         "short_description": "Stellenbosch University, ZA",
-        "description": "Full-time two-year thesis programme: http://hdl.handle.net/10019.1/107946. During my free time I tutored first- and second-year engineering mathematics. I also taught grade 7 pupils fundamentals of robotics and programming. I played field hockey and squash and participated in ballroom dancing.",
+        "description": "Two-year thesis programme: http://hdl.handle.net/10019.1/107946. During my free time I tutored first- and second-year engineering mathematics. I also taught grade 7 pupils fundamentals of robotics and programming. I played field hockey and squash and participated in ballroom dancing.",
         "highlights": [
-            "70% average. Satellite Systems 813 with a 79% grade.",
+            "70% average.",
+            "Satellite Systems 813 with a 79% grade.",
             "Co-author: Mining Surveillance Application Using a CubeSat Constellation",
             "Teaching demonstrator for third and fourth year control system theory.",
             "Internship at S-PLANE: Developed an aircraft mock data generator for simulations using Python."
@@ -50,9 +59,14 @@
             "Satellite System Design",
             "Research",
             "Signal Processing",
-            "Simulation"
+            "Simulation",
+            "LaTeX",
+            "Python",
+            "Matlab",
+            "STK",
+            "Feko"
         ],
-        "date_start": "2018-01-01",
+        "date_start": "2018-01-10",
         "date_end": "2019-12-31",
         "url": "https://www.esl.sun.ac.za/",
         "iconPath": "m 12,1.3057348 h 9.166514 v 4.583257 H 12 q -4.1860413,0 -4.5527019,3.8193817 H 19.638761 V 14.291629 H 7.4472981 Q 7.8139587,18.11101 12,18.11101 h 9.166514 v 4.583255 H 12 q -9.1665136,0 -9.1665136,-9.166511 V 10.472248 Q 2.8334864,1.3057348 12,1.3057348 Z"
@@ -115,8 +129,8 @@
             "Conan",
             "VS Code"
         ],
-        "date_start": "2022-09-01",
-        "date_end": "2023-09-30",
+        "date_start": "2022-09-20",
+        "date_end": "2023-09-31",
         "url": "https://www.vastech.co.za/",
         "iconPath": "M 0.49996748,4.818925 8.0700445,19.181075 15.63521,4.818925 Z M 17.600188,8.2335639 11.695429,19.181075 h 11.804604 z"
     },
@@ -143,7 +157,7 @@
             "VS Code",
             "Copilot"
         ],
-        "date_start": "2024-01-01",
+        "date_start": "2023-10-05",
         "date_end": "current",
         "url": "https://zenseact.com/our-software/",
         "iconPath": "m 11.999762,0.50000005 c -5.3668731,0 -9.8767213,3.66223005 -11.15751194,8.61948815 l 0.00267,0.00137 c -0.1770252,0.6831722 0.23440144,1.3805768 0.91891674,1.5572408 0.6845083,0.176664 1.3824626,-0.234107 1.5594946,-0.9172788 0.00252,-0.00976 0.00438,-0.019571 0.00666,-0.029332 1.0062384,-3.8409327 4.5060512,-6.6756041 8.6697786,-6.675604 4.163795,0 7.663621,2.8345348 8.669778,6.675604 0.0023,0.00962 0.0028,0.019707 0.0053,0.029332 0.177012,0.6832408 0.876304,1.0940108 1.560826,0.9172788 0.684522,-0.176664 1.095997,-0.8740003 0.918917,-1.5572408 l 0.0027,-0.00137 C 21.876463,4.1622573 17.366635,0.50000005 11.999762,0.50000005 Z M 15.357137,6.8649557 C 14.950991,6.8512417 14.541763,7.0112766 14.253105,7.3369275 L 7.6369059,14.800485 C 7.1236678,15.37942 7.1780354,16.272124 7.758096,16.784367 8.3382249,17.29661 9.2331806,17.242044 9.7464187,16.663041 L 16.362618,9.1994839 C 16.875856,8.6205486 16.821488,7.727776 16.241428,7.2156016 15.987651,6.9914954 15.673028,6.8756245 15.357137,6.8649557 Z M 2.0195288,13.283242 c -0.084953,0.0044 -0.1701351,0.01657 -0.2556985,0.03866 -0.6845152,0.176663 -1.09594194,0.874 -0.91891674,1.55724 l -0.00267,0.0014 C 2.1230653,19.837743 6.6328863,23.5 11.99976,23.5 c 5.366872,0 9.8767,-3.662257 11.157511,-8.619488 l -0.0027,-0.0014 c 0.177053,-0.683236 -0.234353,-1.380573 -0.918875,-1.557237 -0.684522,-0.176731 -1.383815,0.234107 -1.560827,0.917279 -0.0025,0.0096 -0.0031,0.01964 -0.0053,0.02933 -1.006157,3.841069 -4.505916,6.675605 -8.669778,6.675605 -4.1638633,0 -7.6635669,-2.834672 -8.6697781,-6.675605 -0.00228,-0.0098 -0.00414,-0.01957 -0.00666,-0.02933 -0.154903,-0.597775 -0.7091283,-0.986407 -1.3037961,-0.955942 z"
