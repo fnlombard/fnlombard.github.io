@@ -7,7 +7,11 @@
     const props: IProps = $props();
 </script>
 
-<div class="flex-1 rounded bg-gray-700 p-4 text-white">
+<div
+    class="flex-1 rounded bg-gray-700 p-4 text-white {props.isSelected
+        ? 'outline-1 outline-amber-100'
+        : ''}"
+>
     <div class="flex justify-between text-lg font-bold">
         <div>{props.item.title}</div>
         <div>{props.item.organization}</div>

@@ -43,7 +43,7 @@
                 {item}
                 isSelected={props.highlighted_id === item.id || highlighted_id === item.id}
             />
-            <div class="h-6 w-full bg-gray-800"></div>
+            <div class="h-6 w-full"></div>
         </div>
     {/each}
 </div>
