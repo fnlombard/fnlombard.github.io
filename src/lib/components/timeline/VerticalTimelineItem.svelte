@@ -17,7 +17,8 @@
         <div>{props.item.organization}</div>
     </div>
     <div class="my-2 text-sm text-gray-400">
-        {props.item.date_start} → {props.item.date_end}
+        {props.item.date_start}
+        {props.item.date_end ? ` → ${props.item.date_end}` : ""}
     </div>
     <div class="my-2 text-sm">{props.item.description}</div>
     {#each props.item.highlights as responsibility}
