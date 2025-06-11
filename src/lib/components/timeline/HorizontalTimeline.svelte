@@ -23,10 +23,9 @@
     const toDate = (dateStr: string) => new Date(normalizeDate(dateStr)).getTime();
 
     const startTimes = props.items.map((item) => toDate(item.date_start));
-    const endTimes = [...props.items.slice(1).map((item) => toDate(item.date_start)), Date.now()];
 
     const minTime = Math.min(...startTimes);
-    const maxTime = Math.max(...endTimes);
+    const maxTime = Date.now();
     const totalTime = maxTime - minTime;
 
     const getTickDates = (): { date: string; left: number }[] =>
@@ -50,6 +49,21 @@
     const selectedIndex = $derived.by(() => {
         if (highlightedItem === null) return null;
         return props.items.findIndex((item) => item.id === highlightedItem.id);
+    });
+
+    const selectedItemWidth = $derived.by(() => {
+        if (highlightedItem === null) return 0;
+
+        const start = toDate(highlightedItem.date_start);
+        const end = toDate(highlightedItem.date_end);
+        return ((end - start) / totalTime) * 100;
+    });
+
+    const selectedItemLeftPos = $derived.by(() => {
+        if (highlightedItem === null) return 0;
+
+        const start = toDate(highlightedItem.date_start);
+        return ((start - minTime) / totalTime) * 100;
     });
 </script>
 
@@ -86,18 +100,19 @@
 
         <!-- Highlighted segment when hovering -->
         {#if highlightedItem}
-            <div
-                class="absolute top-1/2 z-10 h-1.5 -translate-y-1/2 rounded bg-amber-100"
-                style="
-            left: {((toDate(highlightedItem.date_start) - minTime) / totalTime) * 100}%;
-            width: {(((selectedIndex! < props.items.length - 1
-                    ? toDate(highlightedItem.date_end)
-                    : Date.now()) -
-                    toDate(highlightedItem.date_start)) /
-                    totalTime) *
-                    100}%;"
-                transition:fade={{ duration: 150 }}
-            ></div>
+            {#if selectedItemWidth > 0}
+                <div
+                    class="absolute top-1/2 z-10 h-1.5 -translate-y-1/2 rounded bg-amber-100"
+                    style="left: {selectedItemLeftPos}%; width: {selectedItemWidth}%;"
+                    transition:fade={{ duration: 150 }}
+                ></div>
+            {:else}
+                <div
+                    class="absolute top-1/2 z-10 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-100"
+                    style="left: {selectedItemLeftPos}%;"
+                    transition:fade={{ duration: 150 }}
+                ></div>
+            {/if}
         {/if}
     </div>
 </div>
