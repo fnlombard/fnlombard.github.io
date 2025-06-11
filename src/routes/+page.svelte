@@ -8,6 +8,4 @@
     }));
 </script>
 
-<div class="px-8">
-    <Timeline {items} />
-</div>
+<Timeline {items} />
