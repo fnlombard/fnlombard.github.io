@@ -12,7 +12,7 @@
             "VASTech Internship 2016: Develop JavaFX AfrikaBurn campsite location planning and exporting its GPS coordinates to Garmin devices.",
             "VASTech Internship 2017: Identified unknown signals' framing, modulation, and coding using MATLAB."
         ],
-        "growth_points": [
+        "outcomes": [
             "Electromagnetics and Antenna Design",
             "Digital Signal Processing and Filters",
             "Non-linear Control Systems",
@@ -53,7 +53,7 @@
             "Teaching demonstrator for third and fourth year control system theory.",
             "Internship at S-PLANE: Developed an aircraft mock data generator for simulations using Python."
         ],
-        "growth_points": [
+        "outcomes": [
             "Orbital Mechanics",
             "Classical Computer Vision",
             "Satellite System Design",
@@ -81,7 +81,7 @@
             "Engineered Paragon, a mission-and-aircraft management application.",
             "Explored HMI software for aircraft cockpits."
         ],
-        "growth_points": [
+        "outcomes": [
             "C++11",
             "Python",
             "Git",
@@ -110,7 +110,7 @@
             "Designed and developed web UIs, facilitating petabyte-scale data analysis.",
             "Participated in INCOSE GYSEOY 2023."
         ],
-        "growth_points": [
+        "outcomes": [
             "C++20",
             "Qt",
             "Typescript",
@@ -143,7 +143,7 @@
             "Maintain and innovate HIL testing frameworks.",
             "Provide internal support to framework users and troubleshoot HIL failures."
         ],
-        "growth_points": [
+        "outcomes": [
             "Python",
             "Javascript",
             "Git",

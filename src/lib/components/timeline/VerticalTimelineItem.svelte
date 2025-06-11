@@ -19,10 +19,10 @@
     {#each props.item.highlights as responsibility}
         <div class="mt-1 text-sm text-gray-200">- {responsibility}</div>
     {/each}
-    {#if props.item.growth_points.length > 0}
-        <div class="mt-4 mb-2 text-sm font-semibold">Technologies:</div>
+    {#if props.item.outcomes.length > 0}
+        <div class="text mt-4 mb-2 font-semibold">Outcomes</div>
         <div class="flex flex-wrap gap-2">
-            {#each props.item.growth_points as tech}
+            {#each props.item.outcomes as tech}
                 <span class="rounded bg-gray-600 px-2 py-1 text-xs">{tech}</span>
             {/each}
         </div>

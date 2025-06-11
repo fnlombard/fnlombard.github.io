@@ -17,7 +17,7 @@ interface TimelineItem {
     short_description: string;
     description: string;
     highlights: string[];
-    growth_points: string[];
+    outcomes: string[];
     date_start: string;
     date_end: string;
     iconPath: string;
