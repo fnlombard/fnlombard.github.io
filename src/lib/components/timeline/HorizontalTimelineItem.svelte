@@ -35,7 +35,9 @@
 </script>
 
 <button
-    class="absolute cursor-pointer"
+    class="absolute cursor-pointer transition-all duration-300 {props.active
+        ? 'translate-y-1 scale-100'
+        : 'translate-y-4 scale-50'}"
     style="left: {left}%;"
     onmouseenter={() => mouseEnter()}
     onmouseleave={() => props.onhover(null)}
