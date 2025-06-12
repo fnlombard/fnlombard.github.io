@@ -19,7 +19,6 @@
     const end = props.nextStart ? toDate(props.nextStart) : Date.now();
     const total = props.maxTime - props.minTime;
     const left = ((start - props.minTime) / total) * 100;
-    const width = ((end - start) / total) * 100;
 
     let bubblePosition = $state("translate-x-1/9");
     let flyX = $state("-200");
