@@ -16,7 +16,6 @@
 
     const toDate = (d: string) => new Date(d).getTime();
     const start = toDate(props.item.date_start);
-    const end = props.nextStart ? toDate(props.nextStart) : Date.now();
     const total = props.maxTime - props.minTime;
     const left = ((start - props.minTime) / total) * 100;
 
