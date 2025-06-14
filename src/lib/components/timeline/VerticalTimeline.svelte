@@ -29,6 +29,10 @@
         highlighted_id = null;
         props.highlight_item(null);
     }
+
+    function isHighlighted(item: TimelineItem): boolean {
+        return props.highlighted_id === item.id || highlighted_id === item.id;
+    }
 </script>
 
 <div class="mt-4 flex flex-col">
@@ -38,11 +42,9 @@
             onmouseenter={() => mouseEnter(item.id)}
             onmouseleave={() => mouseLeave()}
             role="presentation"
+            style:z-index={isHighlighted(item) ? "1" : "0"}
         >
-            <VerticalTimelineItem
-                {item}
-                isSelected={props.highlighted_id === item.id || highlighted_id === item.id}
-            />
+            <VerticalTimelineItem {item} isSelected={isHighlighted(item)} />
             <div class="h-6 w-full"></div>
         </div>
     {/each}
