@@ -147,7 +147,7 @@
 </script>
 
 <div
-    class="relative w-full px-4 pt-20 pb-4"
+    class="relative w-full px-12 pt-20 pb-4"
     bind:this={containerRef}
     onmousemove={handleMouseMove}
     onmouseleave={handleMouseLeave}

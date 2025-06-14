@@ -31,7 +31,7 @@
 
 <main class="flex transition-all duration-300" style="margin-left: {width};">
     <VerticalNavBar {title} {iconPath} {external_links} {updateWidth} {navigation_links} />
-    <div class="w-full px-8">
+    <div class="w-full">
         {@render children()}
     </div>
 </main>

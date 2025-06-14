@@ -21,11 +21,13 @@
             {highlighted_id}
         />
     </div>
-    <VerticalTimeline
-        items={props.items}
-        highlight_item={(id) => {
-            highlighted_id = id;
-        }}
-        highlighted_id={selectedIndex !== null ? props.items[selectedIndex].id : null}
-    />
+    <div class="px-8">
+        <VerticalTimeline
+            items={props.items}
+            highlight_item={(id) => {
+                highlighted_id = id;
+            }}
+            highlighted_id={selectedIndex !== null ? props.items[selectedIndex].id : null}
+        />
+    </div>
 </div>
