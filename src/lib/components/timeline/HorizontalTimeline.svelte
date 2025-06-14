@@ -2,6 +2,8 @@
     import HorizontalTimelineItem from "./HorizontalTimelineItem.svelte";
     import { fade } from "svelte/transition";
 
+    const IDLE_SCALE = 35;
+
     interface timelineProps {
         items: TimelineItem[];
         update_selected: (index: number | null) => void;
@@ -20,6 +22,7 @@
     interface TimelineItemVM extends TimelineItem {
         left: number;
         scale: number;
+        zIndex: number | null;
         isHighlighted: boolean;
     }
 
@@ -41,7 +44,8 @@
             ...item,
             left: getItemLeft(item),
             scale: 50,
-            isHighlighted: false
+            isHighlighted: false,
+            zIndex: null
         }))
     );
 
@@ -49,7 +53,6 @@
     let positionPercentage: number = $state(0);
     let containerRef: HTMLDivElement | undefined = undefined;
 
-    let hoveredIndex: number | null = $state(null);
     function handleMouseMove(event: MouseEvent): void {
         if (containerRef === undefined) return;
 
@@ -57,42 +60,53 @@
         positionPercentage = ((event.clientX - rect.left) / rect.width) * 100;
 
         let selectedItem = items.at(0);
-
-        if (selectedItem === undefined) return;
+        if (!selectedItem) return;
 
         let maxScale = -Infinity;
+        let minDistance = Infinity;
 
         items.forEach((item) => {
             const distance = Math.abs(item.left - positionPercentage);
-            const scale = Math.round(Math.max(100 - distance, 10));
+            const scaleEase = Math.round(100 * Math.exp(-0.01 * distance));
+            const scale = Math.max(scaleEase, IDLE_SCALE); // lower bound to increase scale spread
             item.scale = scale;
 
-            if (scale > maxScale) {
+            // Prefer closer item if scales are equal
+            if (scale > maxScale || (scale === maxScale && distance < minDistance)) {
                 maxScale = scale;
+                minDistance = distance;
                 selectedItem = item;
             }
         });
 
+        const distances = items.map((item) => ({
+            item,
+            distance: Math.abs(item.left - positionPercentage)
+        }));
+
+        distances.sort((a, b) => a.distance - b.distance);
+
+        distances.forEach((entry, index) => {
+            entry.item.zIndex = items.length - index;
+        });
+
         items.forEach((item) => {
-            if (item === selectedItem) item.isHighlighted = true;
-            else item.isHighlighted = false;
+            item.isHighlighted = item === selectedItem;
         });
 
         props.update_selected(items.indexOf(selectedItem));
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function handleMouseLeave(event: MouseEvent): void {
         items.forEach((item) => {
-            item.scale = 50;
+            item.scale = 65;
             item.isHighlighted = false;
+            item.zIndex = null;
         });
 
         props.update_selected(null);
     }
-
-    $effect(() => {
-        props.update_selected(hoveredIndex);
-    });
 
     const getTickDates = (): { date: string; left: number }[] =>
         items
@@ -126,6 +140,10 @@
         const start = toDate(highlightedItem.date_start);
         return ((start - minTime) / totalTime) * 100;
     });
+
+    function isItemActive(item: TimelineItemVM): boolean {
+        return item.isHighlighted || props.highlighted_id === item.id;
+    }
 </script>
 
 <div
@@ -157,8 +175,9 @@
                     <HorizontalTimelineItem
                         {item}
                         index={i}
-                        active={item.isHighlighted || props.highlighted_id === item.id}
+                        active={isItemActive(item)}
                         scale={item.scale}
+                        zIndex={item.zIndex !== null ? item.zIndex : isItemActive(item) ? 10 : 1}
                     />
                 </div>
             {/each}
