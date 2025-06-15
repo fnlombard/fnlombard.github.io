@@ -2,7 +2,6 @@
     import HorizontalTimelineItem from "./HorizontalTimelineItem.svelte";
     import { fade } from "svelte/transition";
     import { toDate } from "$lib/utils";
-    import { todayStr } from "$lib/constants";
 
     interface timelineProps {
         items: TimelineItem[];
