@@ -10,34 +10,21 @@
     const dateStart = new Date(props.item.date_start);
     const dateEnd = new Date(props.item.date_end);
 
-    const diffTime = dateEnd.getTime() - dateStart.getTime();
-    const diffDaysTotal = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    const diffDaysTotal = Math.floor(
+        (dateEnd.getTime() - dateStart.getTime()) / (1000 * 60 * 60 * 24)
+    );
 
-    let years = dateEnd.getFullYear() - dateStart.getFullYear();
-    let months = dateEnd.getMonth() - dateStart.getMonth();
-    let days = dateEnd.getDate() - dateStart.getDate();
-
-    if (days < 0) {
-        months--;
-        const prevMonth = new Date(dateEnd.getFullYear(), dateEnd.getMonth(), 0);
-        days += prevMonth.getDate();
-    }
-    if (months < 0) {
-        years--;
-        months += 12;
-    }
+    const years = Math.floor(diffDaysTotal / 365);
+    const months = Math.floor((diffDaysTotal % 365) / 30);
+    const days = (diffDaysTotal % 365) % 30;
 
     let totalTime = $state("");
-    if (years > 1) {
-        totalTime = `${years} years${months > 0 ? ` and ${months} months` : ""}`;
-    } else if (years === 1) {
-        totalTime = `${years} year${months > 0 ? ` and ${months} months` : ""}`;
-    } else if (months > 1) {
-        totalTime = `${months} months${days > 0 ? ` and ${days} days` : ""}`;
-    } else if (months === 1) {
-        totalTime = `${months} month${days > 0 ? ` and ${days} days` : ""}`;
+    if (years > 0) {
+        totalTime = `${years} year${years === 1 ? "" : "s"}${months > 0 ? ` and ${months} months` : ""}`;
+    } else if (months > 0) {
+        totalTime = `${months} month${months === 1 ? "" : "s"}${days > 0 ? ` and ${days} days` : ""}`;
     } else {
-        totalTime = `${diffDaysTotal} days`;
+        totalTime = `${days} days`;
     }
 </script>
 
