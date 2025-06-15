@@ -11,7 +11,7 @@
 </script>
 
 <button
-    class={`absolute cursor-pointer ${props.active ? "translate-y-1" : "translate-y-3"}`}
+    class={`absolute cursor-pointer transition-all duration-300 ${props.active ? "translate-y-1 scale-100" : "translate-y-3 scale-75"}`}
     onclick={() => {
         if (props.item.url) {
             window.open(props.item.url, "_blank");
