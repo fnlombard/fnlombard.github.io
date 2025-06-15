@@ -131,7 +131,7 @@
         <!-- Entries -->
         <div class="absolute top-[calc(50%-40px)] left-0 w-full">
             {#each items as item, i}
-                <div class="absolute" style="Left: {item.left}%">
+                <div class="absolute" style="left: {item.left}%; z-index: {item.zIndex};">
                     <HorizontalTimelineItem
                         item={item.source}
                         index={i}
