@@ -1,5 +1,6 @@
 <script lang="ts">
     import Icon from "$lib/components/icon/Icon.svelte";
+    import { fade } from "svelte/transition";
 
     interface itemProps {
         item: TimelineItem;
@@ -8,14 +9,25 @@
     }
 
     const props: itemProps = $props();
+
+    const date_split = props.item.date_start.split("-");
+    const date_year = date_split.at(0)!;
+    const date_rest = "-" + date_split.slice(1).join("-");
 </script>
 
-<!-- Tick -->
 <div class="absolute top-8">
+    <!-- Tick -->
     <div class="absolute h-3 w-px bg-gray-500"></div>
-    <div class="absolute mt-3 -translate-x-1/2 text-xs whitespace-nowrap text-gray-500">
-        {props.item.date_start}
-    </div>
+
+    <!-- Date -->
+    {#if props.active}
+        <div
+            class="absolute top-1 mt-3 flex -translate-x-1/2 text-sm whitespace-nowrap text-amber-100"
+            in:fade={{ duration: 300 }}
+        >
+            {props.item.date_start}
+        </div>
+    {/if}
 </div>
 
 <!-- Icon -->
