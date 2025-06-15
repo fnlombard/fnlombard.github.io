@@ -68,12 +68,6 @@
         props.update_selected(null);
     }
 
-    const getTickDates = (): { date: string; left: number }[] =>
-        items.map((item) => ({
-            date: item.source.date_start,
-            left: item.left
-        }));
-
     const highlightedItem: TimelineItem | null = $derived.by(() => {
         if (props.highlighted_id !== null) {
             return props.items.find((item) => item.id === props.highlighted_id) || null;
@@ -93,7 +87,7 @@
         if (highlightedItem === null) return 0;
 
         const start = toDate(highlightedItem.date_start);
-        return ((start - minTime) / totalTime) * 100;
+        return Math.round(((start - minTime) / totalTime) * 100);
     });
 
     function isItemActive(item: TimelineItemVM): boolean {
