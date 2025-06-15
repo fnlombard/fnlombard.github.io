@@ -40,9 +40,11 @@
     <div class="my-2 flex text-sm text-amber-100">
         {props.item.date_start}
         {props.item.date_end ? ` → ${props.item.date_end}` : ""}
-        <div class="ml-2 text-gray-400">
-            ({totalTime})
-        </div>
+        {#if totalTime !== "NaN days"}
+            <div class="ml-2 text-gray-400">
+                ({totalTime})
+            </div>
+        {/if}
     </div>
     <div class="my-2 text-sm">{@html customMarkdown(props.item.description)}</div>
     {#each props.item.highlights as responsibility}
