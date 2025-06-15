@@ -70,15 +70,10 @@
     }
 
     const getTickDates = (): { date: string; left: number }[] =>
-        items
-            .map((item) => ({
-                date: item.source.date_start,
-                left: ((toDate(item.source.date_start) - minTime) / totalTime) * 100
-            }))
-            .concat({
-                date: todayStr,
-                left: ((Date.now() - minTime) / totalTime) * 100
-            });
+        items.map((item) => ({
+            date: item.source.date_start,
+            left: item.left
+        }));
 
     const highlightedItem: TimelineItem | null = $derived.by(() => {
         if (props.highlighted_id !== null) {
@@ -116,17 +111,6 @@
     <div class="relative h-3 w-full" bind:this={containerRef}>
         <!-- Base timeline -->
         <div class="absolute top-1/2 left-0 z-0 h-1 w-full -translate-y-1/2 bg-gray-900"></div>
-
-        <!-- Ticks -->
-        {#each getTickDates() as tick}
-            <div class="absolute top-0 h-3 w-px bg-gray-500" style="left: {tick.left}%"></div>
-            <div
-                class="absolute mt-3 -translate-x-1/2 text-xs whitespace-nowrap text-gray-500"
-                style="left: {tick.left}%"
-            >
-                {tick.date}
-            </div>
-        {/each}
 
         <!-- Entries -->
         <div class="absolute top-[calc(50%-40px)] left-0 w-full">

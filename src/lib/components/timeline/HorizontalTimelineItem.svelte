@@ -10,6 +10,15 @@
     const props: itemProps = $props();
 </script>
 
+<!-- Tick -->
+<div class="absolute top-8">
+    <div class="absolute h-3 w-px bg-gray-500"></div>
+    <div class="absolute mt-3 -translate-x-1/2 text-xs whitespace-nowrap text-gray-500">
+        {props.item.date_start}
+    </div>
+</div>
+
+<!-- Icon -->
 <button
     class={`absolute cursor-pointer transition-all duration-300 ${props.active ? "translate-y-1 scale-100" : "translate-y-3 scale-75"}`}
     onclick={() => {
