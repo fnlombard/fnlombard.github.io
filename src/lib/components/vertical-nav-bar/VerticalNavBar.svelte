@@ -20,8 +20,8 @@
 
     let collapsed = $state(false);
 
-    function toggleCollapse() {
-        collapsed = !collapsed;
+    function setCollapse(isCollapsed: boolean): void {
+        collapsed = isCollapsed;
         props.updateWidth(width);
     }
 
@@ -51,8 +51,11 @@
 <div
     style="width: {width};"
     class={`fixed top-0 left-0 z-30 flex h-screen min-h-screen flex-col items-center bg-gray-900 p-4 text-white transition-all duration-300`}
+    onmouseenter={() => setCollapse(false)}
+    onmouseleave={() => setCollapse(true)}
+    role="presentation"
 >
-    <button class="cursor-pointer" onclick={toggleCollapse}>
+    <button class="cursor-pointer">
         <img class="w-full" src={props.iconPath} alt="avatar" />
     </button>
 
