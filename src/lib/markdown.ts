@@ -11,7 +11,7 @@ function escapeHTML(str: string): string {
 // (text)[link]
 function linkMarkdown(str: string): string {
     return str.replace(
-        /\((.*?)\)\[(https?:\/\/[^\s\]]+)\]/g,
+        /\(([^)\n]*)\)?\[(https?:\/\/[^\s\]]+)\]/g,
         '<a href="$2" class="underline text-amber-100 hover:text-blue-300" target="_blank" rel="noopener noreferrer">$1</a>'
     );
 }

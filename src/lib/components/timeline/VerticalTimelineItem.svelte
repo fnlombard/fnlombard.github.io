@@ -37,14 +37,16 @@
         <div>{props.item.title}</div>
         <div>{props.item.organization}</div>
     </div>
-    <div class="my-2 text-sm text-gray-400">
+    <div class="my-2 flex text-sm text-amber-100">
         {props.item.date_start}
         {props.item.date_end ? ` → ${props.item.date_end}` : ""}
-        ({totalTime})
+        <div class="ml-2 text-gray-400">
+            ({totalTime})
+        </div>
     </div>
     <div class="my-2 text-sm">{@html customMarkdown(props.item.description)}</div>
     {#each props.item.highlights as responsibility}
-        <div class="mt-1 text-sm text-gray-200">- {responsibility}</div>
+        <div class="mt-1 text-sm text-gray-200">- {@html customMarkdown(responsibility)}</div>
     {/each}
     {#if props.item.outcomes.length > 0}
         <div class="text mt-4 mb-2 font-semibold">Outcomes</div>
