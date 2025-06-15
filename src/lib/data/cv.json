@@ -3,12 +3,12 @@
         "title": "BEng Robotics (Cum Laude)",
         "organization": "Stellenbosch University",
         "short_description": "Stellenbosch University, ZA",
-        "description": "Four-year undergraduate programme in Electronic Engineering with a focus on Robotics. During my free time I played field hockey and squash, and participated in ballroom dancing.",
+        "description": "Four-year undergraduate programme in Electronic Engineering with a focus on Robotics and heavy current electronics. During my free time I played field hockey and squash, and participated in ballroom dancing.",
         "highlights": [
             "83% average.",
             "Received Dean’s Merit for most 3rd and 4th-year modules.",
-            "Dissertation: Design and Build of an Amateur Satellite Ground Station",
-            "Teaching demonstrator for first and second year engineering mathematics.",
+            "Mini Dissertation: Design and Build of an Amateur Satellite Ground Station. ((Thesis Link)[https://drive.google.com/file/d/1S_eyairD6IHexDWjXUpy6XOv8Islykr3/view?usp=sharing])",
+            "Teaching demonstrator for first- and second-year engineering mathematics.",
             "VASTech Internship 2016: Develop JavaFX AfrikaBurn campsite location planning and exporting its GPS coordinates to Garmin devices.",
             "VASTech Internship 2017: Identified unknown signals' framing, modulation, and coding using MATLAB."
         ],
@@ -45,11 +45,11 @@
         "title": "MEng Electronic Engineering",
         "organization": "Electronic Systems Laboratory",
         "short_description": "Stellenbosch University, ZA",
-        "description": "Two-year thesis programme, (link to thesis)[http://hdl.handle.net/10019.1/107946]. During my free time I tutored first- and second-year engineering mathematics. I also taught grade 7 pupils fundamentals of robotics and programming. I played field hockey and squash and participated in ballroom dancing.",
+        "description": "Two-year postgraduate programme ((Thesis Link)[http://hdl.handle.net/10019.1/107946]). During my free time I tutored first- and second-year engineering mathematics. I also taught grade 7 pupils fundamentals of robotics and programming. I played field hockey and squash and participated in ballroom dancing.",
         "highlights": [
             "70% average.",
             "Satellite Systems 813 with a 79% grade.",
-            "Co-author: Mining Surveillance Application Using a CubeSat Constellation",
+            "Co-author: Mining Surveillance Application Using a CubeSat Constellation. ((Article Link)[https://spacemic.net/pdf/mic5/finalist/5_Stellenbosch_abst.pdf])",
             "Teaching demonstrator for third and fourth year control system theory.",
             "Internship at S-PLANE: Developed an aircraft mock data generator for simulations using Python."
         ],
@@ -75,10 +75,12 @@
         "title": "Software Engineer",
         "organization": "S-PLANE",
         "short_description": "S-PLANE, ZA",
-        "description": "Built internal tools for synchronizing multiple git repositories for managing software releases. Built a Microsoft Word plugin for requirement tracing. For fun I participated in table tennis and pool tournaments and was an announcer for an internal Counter Strike tournament.",
+        "description": "I was part of the APP team, responsible for client facing software. Apart from my work duties, I participated in table tennis and pool tournaments and I was an announcer for an internal Counter Strike tournament.",
         "highlights": [
-            "Integrated AIS and ARGOS-II systems, enabling data handling from datasheets to UIs.",
-            "Engineered Paragon, a mission-and-aircraft management application.",
+            "Developed (AIS)[https://en.wikipedia.org/wiki/Automatic_identification_system] message parsing and built a UI to interpret and track information.",
+            "Integrated an ARGOS-II into Paragon, enabling a user to control the hardware using intuitive UIs.",
+            "Engineered (Paragon)[https://s-plane.com/products/isr-payload-operation/paragonisr/], a mission-and-aircraft management application.",
+            "Maintained and developed internal tools for generating configurations, synchronizing mulitple git repositories for software releases, and Microsoft plugins for requirement tracing.",
             "Explored HMI software for aircraft cockpits."
         ],
         "outcomes": [
@@ -104,11 +106,11 @@
         "title": "Software Engineer",
         "organization": "VASTech",
         "short_description": "VASTech, ZA",
-        "description": "Did my best lol. Was short but learnt a lot. Learnt system engineering through INCOSE GYSEOY.",
+        "description": "I was part of the Satellite Front End team responsible for preliminary signal analysis.",
         "highlights": [
             "Maintained and adapted internal tools for external deployment.",
-            "Designed and developed web UIs, facilitating petabyte-scale data analysis.",
-            "Participated in INCOSE GYSEOY 2023."
+            "Designed and developed web UIs that fascilitated petabyte-scale data analysis.",
+            "Participated in the International Council of Systems Engineering's (INCOSE) Greatest Young System Engineer of the Year (GYSEOY)[https://incose.org.za/category/gyseoy/] 2023."
         ],
         "outcomes": [
             "C++20",
@@ -138,7 +140,7 @@
         "title": "Software Engineer",
         "organization": "Zenseact",
         "short_description": "Zenseact, SE",
-        "description": "I am part of the Rapid team responsible for Zenseact's HIL testing, which facilitates testing production code on target and test hardware.",
+        "description": "I am part of the Rapid team responsible for HIL testing that facilitates testing production code on target and test hardware.",
         "highlights": [
             "Maintain and improve the HIL testing framework and environment.",
             "Improve observability of test results to enable easier fault tracing.",
