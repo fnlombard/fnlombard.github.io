@@ -18,7 +18,7 @@
 
     let props: navProps = $props();
 
-    let collapsed = $state(false);
+    let collapsed = $state(true);
 
     function setCollapse(isCollapsed: boolean): void {
         collapsed = isCollapsed;
