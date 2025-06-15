@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { customMarkdown } from "$lib/markdown";
     interface IProps {
         item: TimelineItem;
         isSelected: boolean;
@@ -20,7 +21,7 @@
         {props.item.date_start}
         {props.item.date_end ? ` → ${props.item.date_end}` : ""}
     </div>
-    <div class="my-2 text-sm">{props.item.description}</div>
+    <div class="my-2 text-sm">{@html customMarkdown(props.item.description)}</div>
     {#each props.item.highlights as responsibility}
         <div class="mt-1 text-sm text-gray-200">- {responsibility}</div>
     {/each}
