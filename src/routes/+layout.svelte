@@ -23,7 +23,7 @@
     const iconPath = "/favicon.png";
     const title = "Francois Lombard";
 
-    let width = $state("12rem");
+    let width = $state("4.5rem");
     function updateWidth(newWidth: string): void {
         width = newWidth;
     }
