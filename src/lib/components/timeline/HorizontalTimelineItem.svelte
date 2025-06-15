@@ -5,8 +5,6 @@
         item: TimelineItem;
         index: number;
         active: boolean;
-        scale: number;
-        zIndex: number;
     }
 
     const props: itemProps = $props();
@@ -14,8 +12,6 @@
 
 <button
     class={`absolute cursor-pointer ${props.active ? "translate-y-1" : "translate-y-3"}`}
-    style:scale={props.active ? "100%" : `${props.scale}%`}
-    style:z-index={props.zIndex}
     onclick={() => {
         if (props.item.url) {
             window.open(props.item.url, "_blank");
