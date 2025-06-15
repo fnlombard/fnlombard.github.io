@@ -138,9 +138,10 @@
         "title": "Software Engineer",
         "organization": "Zenseact",
         "short_description": "Zenseact, SE",
-        "description": "Let's go still trying my best.",
+        "description": "I am part of the Rapid team responsible for Zenseact's HIL testing, which facilitates testing production code on target and test hardware.",
         "highlights": [
-            "Maintain and innovate HIL testing frameworks.",
+            "Maintain and improve the HIL testing framework and environment.",
+            "Improve observability of test results to enable easier fault tracing.",
             "Provide internal support to framework users and troubleshoot HIL failures."
         ],
         "outcomes": [
