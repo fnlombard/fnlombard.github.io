@@ -128,13 +128,13 @@
         {#if highlightedItem}
             {#if selectedItemWidth > 0}
                 <div
-                    class="absolute top-1/2 z-10 h-1.5 -translate-y-1/2 rounded bg-amber-100"
+                    class="absolute top-1/2 z-100 h-1.5 -translate-y-1/2 rounded bg-amber-100"
                     style="left: {selectedItemLeftPos}%; width: {selectedItemWidth}%;"
                     transition:fade={{ duration: 150 }}
                 ></div>
             {:else}
                 <div
-                    class="absolute top-1/2 z-10 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-100"
+                    class="absolute top-1/2 z-100 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-100"
                     style="left: {selectedItemLeftPos}%;"
                     transition:fade={{ duration: 150 }}
                 ></div>
