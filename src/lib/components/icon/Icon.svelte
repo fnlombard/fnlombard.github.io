@@ -12,6 +12,8 @@
     <!-- Stroke SVG -->
     <svg
         class="absolute h-full w-full fill-none stroke-amber-100 stroke-1"
+        class:opacity-0={props.is_focused}
+        class:opacity-100={!props.is_focused}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 25 25"
     >
