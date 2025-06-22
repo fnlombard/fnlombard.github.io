@@ -55,9 +55,7 @@
     onmouseleave={() => setCollapse(true)}
     role="presentation"
 >
-    <button class="cursor-pointer">
-        <img class="w-full" src={props.iconPath} alt="avatar" />
-    </button>
+    <img class="w-10" src={props.iconPath} alt="avatar" />
 
     {#if collapsed}
         <div class="mt-2 text-center text-sm font-semibold" in:fade={{ delay: 150 }}>
