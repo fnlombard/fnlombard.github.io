@@ -22,15 +22,12 @@
 
     const iconPath = "/favicon.png";
     const title = "Francois Lombard";
-
-    let width = $state("4.5rem");
-    function updateWidth(newWidth: string): void {
-        width = newWidth;
-    }
 </script>
 
-<main class="flex transition-all duration-300" style="margin-left: {width};">
-    <VerticalNavBar {title} {iconPath} {external_links} {updateWidth} {navigation_links} />
+<main class="flex flex-col transition-all duration-300 md:flex-row">
+    <div class="w-full md:w-18">
+        <VerticalNavBar {title} {iconPath} {external_links} {navigation_links} />
+    </div>
     <div class="w-full">
         {@render children()}
     </div>
