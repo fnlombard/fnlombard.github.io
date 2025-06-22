@@ -38,7 +38,7 @@
 <div class="mt-4 flex flex-col">
     {#each sortedItems as item (item.id)}
         <div
-            animate:flip={{ duration: 700 }}
+            animate:flip={{ duration: 300 }}
             onmouseenter={() => mouseEnter(item.id)}
             onmouseleave={() => mouseLeave()}
             role="presentation"
