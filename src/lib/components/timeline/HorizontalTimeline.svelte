@@ -19,12 +19,38 @@
 
     let mouseLeft: number = $state(0);
     let containerRef: HTMLDivElement | undefined = undefined;
+    let selectedIndex: number = -1;
+
+    function handleWheel(event: WheelEvent): void {
+        event.preventDefault();
+
+        if (selectedIndex === -1) return;
+
+        if (event.deltaY > 0 && selectedIndex < props.items.length - 1) {
+            selectedIndex++;
+        } else if (event.deltaY < 0 && selectedIndex > 0) {
+            selectedIndex--;
+        }
+
+        props.items.forEach((item, index) => {
+            item.isHighlighted = index === selectedIndex;
+            item.zIndex = props.items.length - Math.abs(selectedIndex - index);
+        });
+    }
+
+    let lastMouseLeft = 0;
+    const movementThreshold = 0.5;
 
     function handleMouseMove(event: MouseEvent): void {
         if (containerRef === undefined) return;
 
         const rect = containerRef.getBoundingClientRect();
-        mouseLeft = ((event.clientX - rect.left) / rect.width) * 100;
+        const newMouseLeft = ((event.clientX - rect.left) / rect.width) * 100;
+
+        if (Math.abs(newMouseLeft - lastMouseLeft) < movementThreshold) return;
+
+        lastMouseLeft = newMouseLeft;
+        mouseLeft = newMouseLeft;
 
         const distances = props.items
             .map((item) => ({
@@ -38,8 +64,9 @@
             entry.item.isHighlighted = false;
         });
 
-        let selectedItem = distances.at(0)!.item;
+        let selectedItem = distances[0].item;
         selectedItem.isHighlighted = true;
+        selectedIndex = props.items.indexOf(selectedItem);
 
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -49,6 +76,7 @@
             item.isHighlighted = false;
             item.zIndex = null;
         });
+        selectedIndex = -1;
     }
 
     const highlightedItem: TimelineItemVM | null = $derived.by(() => {
@@ -75,6 +103,7 @@
     class="relative w-full px-12 pt-20 pb-4"
     onmousemove={handleMouseMove}
     onmouseleave={handleMouseLeave}
+    onwheel={handleWheel}
     role="presentation"
 >
     <div class="relative h-3 w-full" bind:this={containerRef}>
