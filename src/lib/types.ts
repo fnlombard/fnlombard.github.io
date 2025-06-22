@@ -23,3 +23,9 @@ interface TimelineItem {
     iconPath: string;
     url: string;
 }
+
+interface TimelineItemVM extends TimelineItem {
+    isHighlighted: boolean;
+    left: number;
+    zIndex: number | null;
+}

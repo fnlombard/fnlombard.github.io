@@ -4,9 +4,7 @@
     import { toDate } from "$lib/utils";
 
     interface timelineProps {
-        items: TimelineItem[];
-        update_selected: (index: number | null) => void;
-        highlighted_id?: number | null;
+        items: TimelineItemVM[];
     }
 
     const props: timelineProps = $props();
@@ -15,20 +13,8 @@
     const maxTime = Date.now();
     const totalTime = maxTime - minTime;
 
-    interface TimelineItemVM {
-        source: TimelineItem;
-        left: number;
-        zIndex: number | null;
-        isHighlighted: boolean;
-    }
-
-    const items: TimelineItemVM[] = $state(
-        props.items.map((item) => ({
-            source: item,
-            left: Math.round(((toDate(item.date_start) - minTime) / totalTime) * 100),
-            isHighlighted: false,
-            zIndex: null
-        }))
+    props.items.forEach(
+        (item) => (item.left = Math.round(((toDate(item.date_start) - minTime) / totalTime) * 100))
     );
 
     let mouseLeft: number = $state(0);
@@ -40,7 +26,7 @@
         const rect = containerRef.getBoundingClientRect();
         mouseLeft = ((event.clientX - rect.left) / rect.width) * 100;
 
-        const distances = items
+        const distances = props.items
             .map((item) => ({
                 item,
                 distance: Math.abs(item.left - mouseLeft)
@@ -48,31 +34,25 @@
             .sort((a, b) => a.distance - b.distance);
 
         distances.forEach((entry, index) => {
-            entry.item.zIndex = items.length - index;
+            entry.item.zIndex = props.items.length - index;
             entry.item.isHighlighted = false;
         });
 
         let selectedItem = distances.at(0)!.item;
         selectedItem.isHighlighted = true;
 
-        props.update_selected(items.indexOf(selectedItem));
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function handleMouseLeave(event: MouseEvent): void {
-        items.forEach((item) => {
+        props.items.forEach((item) => {
             item.isHighlighted = false;
             item.zIndex = null;
         });
-
-        props.update_selected(null);
     }
 
-    const highlightedItem: TimelineItem | null = $derived.by(() => {
-        if (props.highlighted_id !== null) {
-            return props.items.find((item) => item.id === props.highlighted_id) || null;
-        }
-        return items.find((item) => item.isHighlighted === true)?.source || null;
+    const highlightedItem: TimelineItemVM | null = $derived.by(() => {
+        return props.items.find((item) => item.isHighlighted === true) || null;
     });
 
     const selectedItemWidth = $derived.by(() => {
@@ -89,10 +69,6 @@
         const start = toDate(highlightedItem.date_start);
         return Math.round(((start - minTime) / totalTime) * 100);
     });
-
-    function isItemActive(item: TimelineItemVM): boolean {
-        return item.isHighlighted || props.highlighted_id === item.source.id;
-    }
 </script>
 
 <div
@@ -107,13 +83,9 @@
 
         <!-- Entries -->
         <div class="absolute top-[calc(50%-40px)] left-0 w-full">
-            {#each items as item, i}
+            {#each props.items as item}
                 <div class="absolute" style="left: {item.left}%; z-index: {item.zIndex};">
-                    <HorizontalTimelineItem
-                        item={item.source}
-                        index={i}
-                        active={isItemActive(item)}
-                    />
+                    <HorizontalTimelineItem {item} />
                 </div>
             {/each}
         </div>

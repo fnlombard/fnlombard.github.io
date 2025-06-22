@@ -3,35 +3,36 @@
     import VerticalTimelineItem from "./VerticalTimelineItem.svelte";
 
     interface IProps {
-        highlighted_id: number | null;
-        items: TimelineItem[];
-        highlight_item: (id: number | null) => void;
+        items: TimelineItemVM[];
     }
 
     const props: IProps = $props();
 
+    let highlightedItem: TimelineItemVM | null = $derived(
+        props.items.find((item) => item.isHighlighted === true) || null
+    );
+
+    let hoveredItem: TimelineItemVM | null = $state(null);
+
     const sortedItems = $derived.by(() => {
-        if (props.highlighted_id == null) return props.items;
-        return [
-            ...props.items.filter((item) => item.id === props.highlighted_id),
-            ...props.items.filter((item) => item.id !== props.highlighted_id)
-        ];
+        // Decouple local and external highlight
+        if (hoveredItem === highlightedItem) return props.items;
+
+        if (highlightedItem === null) return props.items;
+
+        return [highlightedItem, ...props.items.filter((item) => item !== highlightedItem)];
     });
 
-    let highlighted_id: number | null = $state(null);
-
-    function mouseEnter(id: number | null): void {
-        highlighted_id = id;
-        props.highlight_item(id);
+    function mouseEnter(item: TimelineItemVM): void {
+        hoveredItem = item;
+        item.isHighlighted = true;
+        item.zIndex = props.items.length;
     }
 
-    function mouseLeave(): void {
-        highlighted_id = null;
-        props.highlight_item(null);
-    }
-
-    function isHighlighted(item: TimelineItem): boolean {
-        return props.highlighted_id === item.id || highlighted_id === item.id;
+    function mouseLeave(item: TimelineItemVM): void {
+        hoveredItem = null;
+        item.isHighlighted = false;
+        item.zIndex = null;
     }
 </script>
 
@@ -39,12 +40,12 @@
     {#each sortedItems as item (item.id)}
         <div
             animate:flip={{ duration: 300 }}
-            onmouseenter={() => mouseEnter(item.id)}
-            onmouseleave={() => mouseLeave()}
+            onmouseenter={() => mouseEnter(item)}
+            onmouseleave={() => mouseLeave(item)}
             role="presentation"
-            style:z-index={isHighlighted(item) ? "1" : "0"}
+            style:z-index={item.isHighlighted ? "1" : "0"}
         >
-            <VerticalTimelineItem {item} isSelected={isHighlighted(item)} />
+            <VerticalTimelineItem {item} />
             <div class="h-6 w-full"></div>
         </div>
     {/each}

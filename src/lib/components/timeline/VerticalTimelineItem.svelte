@@ -1,8 +1,7 @@
 <script lang="ts">
     import { customMarkdown } from "$lib/markdown";
     interface IProps {
-        item: TimelineItem;
-        isSelected: boolean;
+        item: TimelineItemVM;
     }
 
     const props: IProps = $props();
@@ -29,7 +28,7 @@
 </script>
 
 <div
-    class="flex-1 rounded bg-gray-700 p-4 text-white {props.isSelected
+    class="flex-1 rounded bg-gray-700 p-4 text-white {props.item.isHighlighted
         ? 'outline-1 outline-amber-100'
         : ''}"
 >
