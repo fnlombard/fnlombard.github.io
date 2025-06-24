@@ -17,7 +17,6 @@
         (item) => (item.left = Math.round(((toDate(item.date_start) - minTime) / totalTime) * 100))
     );
 
-    let mouseLeft: number = $state(0);
     let containerRef: HTMLDivElement | undefined = undefined;
     let selectedIndex: number = -1;
 
@@ -38,24 +37,17 @@
         });
     }
 
-    let lastMouseLeft = 0;
+    let lastPosition = 0;
     const movementThreshold = 0.5;
 
-    function handleMouseMove(event: MouseEvent): void {
-        if (containerRef === undefined) return;
-
-        const rect = containerRef.getBoundingClientRect();
-        const newMouseLeft = ((event.clientX - rect.left) / rect.width) * 100;
-
-        if (Math.abs(newMouseLeft - lastMouseLeft) < movementThreshold) return;
-
-        lastMouseLeft = newMouseLeft;
-        mouseLeft = newMouseLeft;
+    function updateHighlightedItem(currentPosition: number): void {
+        if (Math.abs(currentPosition - lastPosition) < movementThreshold) return;
+        lastPosition = currentPosition;
 
         const distances = props.items
             .map((item) => ({
                 item,
-                distance: Math.abs(item.left - mouseLeft)
+                distance: Math.abs(item.left - currentPosition)
             }))
             .sort((a, b) => a.distance - b.distance);
 
@@ -64,14 +56,30 @@
             entry.item.isHighlighted = false;
         });
 
-        let selectedItem = distances[0].item;
+        const selectedItem = distances[0].item;
         selectedItem.isHighlighted = true;
         selectedIndex = props.items.indexOf(selectedItem);
 
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    function handleMouseLeave(event: MouseEvent): void {
+    function handleMouseMove(event: MouseEvent): void {
+        if (containerRef === undefined) return;
+
+        const rect = containerRef.getBoundingClientRect();
+        const mousePosition = ((event.clientX - rect.left) / rect.width) * 100;
+        updateHighlightedItem(mousePosition);
+    }
+
+    function handleTouchMove(event: TouchEvent): void {
+        if (containerRef === undefined || event.touches.length === 0) return;
+
+        const rect = containerRef.getBoundingClientRect();
+        const newTouchLeft = ((event.touches[0].clientX - rect.left) / rect.width) * 100;
+        updateHighlightedItem(newTouchLeft);
+    }
+
+    function handleLeave(): void {
         props.items.forEach((item) => {
             item.isHighlighted = false;
             item.zIndex = null;
@@ -102,8 +110,10 @@
 <div
     class="relative w-full px-12 pt-20 pb-4"
     onmousemove={handleMouseMove}
-    onmouseleave={handleMouseLeave}
+    onmouseleave={handleLeave}
     onwheel={handleWheel}
+    ontouchmove={handleTouchMove}
+    ontouchend={handleLeave}
     role="presentation"
 >
     <div class="relative h-3 w-full" bind:this={containerRef}>
