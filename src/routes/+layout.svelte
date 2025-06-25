@@ -25,7 +25,7 @@
 </script>
 
 <main class="flex flex-col transition-all duration-300 md:flex-row">
-    <div class="w-full md:w-18">
+    <div class="h-7 w-full md:w-18">
         <VerticalNavBar {title} {iconPath} {external_links} {navigation_links} />
     </div>
     <div class="w-full">
