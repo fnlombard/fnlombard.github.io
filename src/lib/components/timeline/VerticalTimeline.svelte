@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { flip } from "svelte/animate";
     import VerticalTimelineItem from "./VerticalTimelineItem.svelte";
 
     interface IProps {
@@ -14,15 +13,6 @@
 
     let hoveredItem: TimelineItemVM | null = $state(null);
 
-    const sortedItems = $derived.by(() => {
-        // Decouple local and external highlight
-        if (hoveredItem === highlightedItem) return props.items;
-
-        if (highlightedItem === null) return props.items;
-
-        return [highlightedItem, ...props.items.filter((item) => item !== highlightedItem)];
-    });
-
     function mouseEnter(item: TimelineItemVM): void {
         hoveredItem = item;
         item.isHighlighted = true;
@@ -34,12 +24,21 @@
         item.isHighlighted = false;
         item.zIndex = null;
     }
+
+    $effect(() => {
+        props.items.forEach((item) => {
+            if (item.isHighlighted && hoveredItem !== item) {
+                const el = document.getElementById("" + item.id);
+                if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        });
+    });
 </script>
 
 <div class="mt-4 flex flex-col">
-    {#each sortedItems as item (item.id)}
+    {#each props.items as item (item.id)}
         <div
-            animate:flip={{ duration: 300 }}
+            id={`${item.id}`}
             onmouseenter={() => mouseEnter(item)}
             onmouseleave={() => mouseLeave(item)}
             role="presentation"

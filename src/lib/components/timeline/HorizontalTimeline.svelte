@@ -59,8 +59,6 @@
         const selectedItem = distances[0].item;
         selectedItem.isHighlighted = true;
         selectedIndex = props.items.indexOf(selectedItem);
-
-        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function handleMouseMove(event: MouseEvent): void {
