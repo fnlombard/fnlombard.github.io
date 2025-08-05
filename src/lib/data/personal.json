@@ -35,7 +35,10 @@
             "25 Lessons",
             "3 Examinations (I failed twice)."
         ],
-        "outcomes": ["Driver's License", "Face Anxiety"],
+        "outcomes": [
+            "Driver's License",
+            "Face Anxiety"
+        ],
         "date_start": "2024-10-11",
         "date_end": "2025-03-28",
         "url": "https://www.trafikverket.se/",
@@ -73,8 +76,10 @@
         "title": "Moved to Somerset West",
         "organization": "",
         "short_description": "",
-        "description": "I lived in De Velde Estate! It was nice because my friends lived there as well, it was across the street from a Woolworths and five minutes to work.",
-        "highlights": ["I played squash nearly everyday at the local courts."],
+        "description": "I lived in De Velde Estate! It was great because my friends lived there too. It was across the street from a Woolworths and five minutes to work.",
+        "highlights": [
+            "I played squash nearly everyday at the local courts."
+        ],
         "outcomes": [],
         "date_start": "2020-01-01",
         "date_end": "2022-03-31",
@@ -85,7 +90,7 @@
         "title": "Nationwide Lockdown",
         "organization": "South Africa",
         "short_description": "",
-        "description": "During the first three months I only left my apartment three times. Lockdown was announced on my birthday, 23 March. I remember it was during this time I bought my first ever gaming computer.",
+        "description": "During the first three months I only left my apartment three times. Lockdown was announced on my birthday, 23 March.",
         "highlights": [],
         "outcomes": [],
         "date_start": "2020-03-27",
@@ -112,8 +117,13 @@
         "title": "Started Therapy",
         "organization": "",
         "short_description": "",
-        "description": "What a hard journey it has been. I will write more!",
-        "highlights": [],
+        "description": "I never thought that therapy would be something I would need, but after a few months of feeling lost and overwhelmed, I decided to give it a try. It was one of the best decisions I've ever made.",
+        "highlights": [
+            "Face anxiety",
+            "Learn coping mechanisms",
+            "Learn to love myself (very much a work in progress)",
+            "Learn to share my feelings"
+        ],
         "outcomes": [],
         "date_start": "2022-07-30",
         "date_end": "",
@@ -154,8 +164,14 @@
         "title": "CrossFit",
         "organization": "",
         "short_description": "",
-        "description": "I will write more! This has changed my life for the better.",
-        "highlights": [],
+        "description": "A really fun way to stay fit and improve my mobility. It's a great way to meet new people and push myself physically.",
+        "highlights": [
+            "C&J - 78 kg",
+            "Snatch - 55 kg",
+            "Back Squat - 110 kg",
+            "Dead Lift - 110 kg",
+            "Front Squat - 90 kg"
+        ],
         "outcomes": [],
         "date_start": "2023-01-01",
         "date_end": "current",
@@ -171,6 +187,38 @@
         "outcomes": [],
         "date_start": "2023-12-23",
         "date_end": "current",
+        "url": "",
+        "iconPath": "m 8.3421318,11.879941 -0.1582672,0.908364 0.5442326,0.609836 -0.3711891,2.079249 -0.7362361,0.899876 0.086522,0.523074 -0.615978,0.436133 0.021096,0.948663 0.5568726,0.334538 -0.00205,1.060802 0.8331725,1.880259 0.01264,1.668493 0.2805727,0.2224 1.0272229,-0.279497 0.1856843,-0.880844 1.20445,-0.05933 0.721371,-2.322826 0.03169,-1.939501 1.371085,-0.897821 0.364958,-1.041769 -0.89655,-1.369964 -0.442935,-0.02332 -0.26366,-1.285256 0.265797,-1.257736 0.02101,-0.503952 1.244596,-1.7532003 1.02304,-0.7707605 0.44507,-0.9591173 -0.06329,-1.0884115 0.394422,-1.3805071 1.21086,-0.06353 L 16.157397,4.5748686 16.302935,3.9184799 15.366328,1.5406123 14.73139,1.3183015 13.961507,0.57720586 13.617645,0.70417686 13.446827,1.6570395 12.352042,1.4198961 11.141271,3.3213324 11.339506,3.9353676 10.738393,5.1083966 10.111912,5.4917218 9.9536437,7.1771914 9.4516933,8.0558909 9.6477917,9.0171527 8.7260498,9.0828274 8.1712246,10.173294 Z"
+    },
+    {
+        "title": "Stockholm Trip",
+        "organization": "",
+        "short_description": "",
+        "description": "The largest city I have ever been to! Mainly explore Gamla Stan and Djurgården.",
+        "highlights": [
+            "Vasa Museuem",
+            "Gröna Lund",
+            "Watching Taylor Tomlinson"
+        ],
+        "outcomes": [],
+        "date_start": "2025-07-21",
+        "date_end": "2025-07-25",
+        "url": "",
+        "iconPath": "m 8.3421318,11.879941 -0.1582672,0.908364 0.5442326,0.609836 -0.3711891,2.079249 -0.7362361,0.899876 0.086522,0.523074 -0.615978,0.436133 0.021096,0.948663 0.5568726,0.334538 -0.00205,1.060802 0.8331725,1.880259 0.01264,1.668493 0.2805727,0.2224 1.0272229,-0.279497 0.1856843,-0.880844 1.20445,-0.05933 0.721371,-2.322826 0.03169,-1.939501 1.371085,-0.897821 0.364958,-1.041769 -0.89655,-1.369964 -0.442935,-0.02332 -0.26366,-1.285256 0.265797,-1.257736 0.02101,-0.503952 1.244596,-1.7532003 1.02304,-0.7707605 0.44507,-0.9591173 -0.06329,-1.0884115 0.394422,-1.3805071 1.21086,-0.06353 L 16.157397,4.5748686 16.302935,3.9184799 15.366328,1.5406123 14.73139,1.3183015 13.961507,0.57720586 13.617645,0.70417686 13.446827,1.6570395 12.352042,1.4198961 11.141271,3.3213324 11.339506,3.9353676 10.738393,5.1083966 10.111912,5.4917218 9.9536437,7.1771914 9.4516933,8.0558909 9.6477917,9.0171527 8.7260498,9.0828274 8.1712246,10.173294 Z"
+    },
+    {
+        "title": "Malmö Trip",
+        "organization": "",
+        "short_description": "",
+        "description": "Beautiful small city with tons of history on the southern tip of Sweden.",
+        "highlights": [
+            "Watching SatchVai",
+            "Malmö Castle",
+            "Kungsparken"
+        ],
+        "outcomes": [],
+        "date_start": "2025-06-27",
+        "date_end": "2025-06-28",
         "url": "",
         "iconPath": "m 8.3421318,11.879941 -0.1582672,0.908364 0.5442326,0.609836 -0.3711891,2.079249 -0.7362361,0.899876 0.086522,0.523074 -0.615978,0.436133 0.021096,0.948663 0.5568726,0.334538 -0.00205,1.060802 0.8331725,1.880259 0.01264,1.668493 0.2805727,0.2224 1.0272229,-0.279497 0.1856843,-0.880844 1.20445,-0.05933 0.721371,-2.322826 0.03169,-1.939501 1.371085,-0.897821 0.364958,-1.041769 -0.89655,-1.369964 -0.442935,-0.02332 -0.26366,-1.285256 0.265797,-1.257736 0.02101,-0.503952 1.244596,-1.7532003 1.02304,-0.7707605 0.44507,-0.9591173 -0.06329,-1.0884115 0.394422,-1.3805071 1.21086,-0.06353 L 16.157397,4.5748686 16.302935,3.9184799 15.366328,1.5406123 14.73139,1.3183015 13.961507,0.57720586 13.617645,0.70417686 13.446827,1.6570395 12.352042,1.4198961 11.141271,3.3213324 11.339506,3.9353676 10.738393,5.1083966 10.111912,5.4917218 9.9536437,7.1771914 9.4516933,8.0558909 9.6477917,9.0171527 8.7260498,9.0828274 8.1712246,10.173294 Z"
     },
@@ -258,7 +306,9 @@
         "organization": "Mensa South Africa",
         "short_description": "",
         "description": "I took the admission test with a friend who did not want to go alone. Before this I have never heard of Mensa. While I enjoyed some of the events, such as whiskey, Lindt chocolate workshops, and champagne tastings, I found that the environment did not align with my interests nor values and chose not to renew my membership.",
-        "highlights": ["Membership Number: 33112"],
+        "highlights": [
+            "Membership Number: 33112"
+        ],
         "outcomes": [],
         "date_start": "2018-03-04",
         "date_end": "2022-06-01",
