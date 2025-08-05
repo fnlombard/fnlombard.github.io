@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@vercel/analytics':
+        specifier: ^1.5.0
+        version: 1.5.0(@sveltejs/kit@2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.33.2)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.33.2)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.33.2)
+      '@vercel/speed-insights':
+        specifier: ^1.2.0
+        version: 1.2.0(@sveltejs/kit@2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.33.2)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.33.2)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.33.2)
     devDependencies:
       '@eslint/compat':
         specifier: ^1.2.5
@@ -734,10 +741,59 @@ packages:
     resolution: {integrity: sha512-ar0tjQfObzhSaW3C3QNmTc5ofj0hDoNQ5XWrCy6zDyabdr0TWhCkClp+rywGNj/odAFBVzzJrK4tEq5M4Hmu4w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@vercel/analytics@1.5.0':
+    resolution: {integrity: sha512-MYsBzfPki4gthY5HnYN7jgInhAZ7Ac1cYDoRWFomwGHWEX7odTEzbtg9kf/QSo7XEsEAqlQugA6gJ2WS2DEa3g==}
+    peerDependencies:
+      '@remix-run/react': ^2
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@remix-run/react':
+        optional: true
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
+
   '@vercel/nft@0.30.0':
     resolution: {integrity: sha512-xVye7Z0riD9czsMuEJYpFqm2FR33r3euYaFzuEPCoUtYuDwmus3rJfKtcFU7Df+pgj8p4zs78x5lOWYoLNr+7Q==}
     engines: {node: '>=18'}
     hasBin: true
+
+  '@vercel/speed-insights@1.2.0':
+    resolution: {integrity: sha512-y9GVzrUJ2xmgtQlzFP2KhVRoCglwfRQgjyfY607aU0hh0Un6d0OUyrJkjuAlsV18qR4zfoFPs/BiIj9YDS6Wzw==}
+    peerDependencies:
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
 
   '@vitest/expect@3.1.4':
     resolution: {integrity: sha512-xkD/ljeliyaClDYqHPNCiJ0plY5YIcM0OlRiZizLhlPmpXWpxnGMyTZXOHFhFeG7w9P5PBeL4IdtJ/HeQwTbQA==}
@@ -2556,6 +2612,11 @@ snapshots:
       '@typescript-eslint/types': 8.32.1
       eslint-visitor-keys: 4.2.0
 
+  '@vercel/analytics@1.5.0(@sveltejs/kit@2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.33.2)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.33.2)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.33.2)':
+    optionalDependencies:
+      '@sveltejs/kit': 2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.33.2)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.33.2)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1))
+      svelte: 5.33.2
+
   '@vercel/nft@0.30.0(rollup@4.41.1)':
     dependencies:
       '@mapbox/node-pre-gyp': 2.0.0
@@ -2574,6 +2635,11 @@ snapshots:
       - encoding
       - rollup
       - supports-color
+
+  '@vercel/speed-insights@1.2.0(@sveltejs/kit@2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.33.2)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.33.2)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.33.2)':
+    optionalDependencies:
+      '@sveltejs/kit': 2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.33.2)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.33.2)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1))
+      svelte: 5.33.2
 
   '@vitest/expect@3.1.4':
     dependencies:

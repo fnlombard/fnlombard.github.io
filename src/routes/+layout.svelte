@@ -1,10 +1,16 @@
 <script lang="ts">
     import VerticalNavBar from "$lib/components/vertical-nav-bar/VerticalNavBar.svelte";
+    import { dev } from "$app/environment";
+    import { injectAnalytics } from "@vercel/analytics/sveltekit";
+    import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
     import { icons } from "$lib/icons";
 
     import "../app.css";
 
     let { children } = $props();
+
+    injectAnalytics({ mode: dev ? "development" : "production" });
+    injectSpeedInsights();
 
     const external_links: Link[] = [
         { label: "GitHub", url: "https://github.com/fnlombard", icon: icons["github"] },
@@ -25,7 +31,7 @@
 </script>
 
 <main class="flex flex-col transition-all duration-300 md:flex-row">
-    <div class="h-7 w-full md:w-18">
+    <div class="md:w-18">
         <VerticalNavBar {title} {iconPath} {external_links} {navigation_links} />
     </div>
     <div class="w-full">

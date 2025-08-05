@@ -106,7 +106,7 @@
 </script>
 
 <div
-    class="relative w-full px-12 pt-20 pb-4"
+    class="fixed z-10 h-20 w-full bg-gray-800 pt-24 pr-12 pb-10 pl-12 md:pt-16 md:pr-28"
     onmousemove={handleMouseMove}
     onmouseleave={handleLeave}
     onwheel={handleWheel}

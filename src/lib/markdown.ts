@@ -17,17 +17,14 @@ function linkMarkdown(str: string): string {
 }
 
 function boldMarkdown(str: string): string {
-    return str.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    return str.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
 }
 
 function italicsMarkdown(str: string): string {
-    return str.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    return str.replace(/\*(.*?)\*/g, "<em>$1</em>");
 }
 
 export function customMarkdown(str: string): string {
     const escaped = escapeHTML(str);
-    return [linkMarkdown, boldMarkdown, italicsMarkdown].reduce(
-        (acc, fn) => fn(acc),
-        escaped
-    );
+    return [linkMarkdown, boldMarkdown, italicsMarkdown].reduce((acc, fn) => fn(acc), escaped);
 }

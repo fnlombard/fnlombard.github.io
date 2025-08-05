@@ -66,9 +66,9 @@
 
 <div
     style:width={isDesktop ? width : ""}
-    class="fixed z-30 flex h-10 min-h-10 w-screen min-w-screen flex-row bg-gray-900 text-white transition-all
-        duration-300 md:top-0 md:left-0 md:h-screen md:min-h-screen md:w-18 md:min-w-18
-        md:flex-col md:items-center md:bg-gray-900 md:p-4"
+    class="fixed z-30 flex h-10 min-h-10 w-screen min-w-screen flex-row bg-gray-900
+        text-white transition-all duration-300 md:top-0 md:left-0 md:h-screen md:min-h-screen
+        md:w-18 md:min-w-18 md:flex-col md:items-center md:bg-gray-900 md:p-4"
     onmouseenter={() => setCollapse(false)}
     onmouseleave={() => setCollapse(true)}
     role="presentation"

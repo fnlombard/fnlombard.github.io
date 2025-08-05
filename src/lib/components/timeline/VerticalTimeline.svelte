@@ -35,7 +35,7 @@
     });
 </script>
 
-<div class="mt-4 flex flex-col">
+<div class="mt-4 flex flex-col px-8">
     {#each props.items as item (item.id)}
         <div
             id={`${item.id}`}

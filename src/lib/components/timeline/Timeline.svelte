@@ -19,10 +19,10 @@
 </script>
 
 <div class="flex flex-col">
-    <div class="sticky top-0 z-10 h-30 bg-gray-800">
+    <div>
         <HorizontalTimeline {items} />
     </div>
-    <div class="px-8">
+    <div class="pt-32 md:pt-24">
         <VerticalTimeline {items} />
     </div>
 </div>

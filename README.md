@@ -1,6 +1,7 @@
 # My GitHub Page (TBD)
 
 This project is still in its infancy and I am trying to bring it to some kind of MVP. I think that it is nearly there, althought the following still needs to be completed before I can call it v1.0.0:
+
 - Complete personal entries.
 - Add commit hook to PREVENT PUSHING IF LINTING IS STUFFED.
 - Page routing should determine selected sidebar item.
