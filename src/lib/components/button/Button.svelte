@@ -33,7 +33,7 @@
     disabled={props.disabled}
 >
     {#if props.iconPath}
-        <div class="min-w-6">
+        <div class="w-6 max-w-6 min-w-6">
             <Icon path={props.iconPath} {is_focused} />
         </div>
     {/if}
