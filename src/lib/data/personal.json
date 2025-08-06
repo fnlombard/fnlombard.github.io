@@ -35,10 +35,7 @@
             "25 Lessons",
             "3 Examinations (I failed twice)."
         ],
-        "outcomes": [
-            "Driver's License",
-            "Face Anxiety"
-        ],
+        "outcomes": ["Driver's License", "Face Anxiety"],
         "date_start": "2024-10-11",
         "date_end": "2025-03-28",
         "url": "https://www.trafikverket.se/",
@@ -77,9 +74,7 @@
         "organization": "",
         "short_description": "",
         "description": "I lived in De Velde Estate! It was great because my friends lived there too. It was across the street from a Woolworths and five minutes to work.",
-        "highlights": [
-            "I played squash nearly everyday at the local courts."
-        ],
+        "highlights": ["I played squash nearly everyday at the local courts."],
         "outcomes": [],
         "date_start": "2020-01-01",
         "date_end": "2022-03-31",
@@ -195,11 +190,7 @@
         "organization": "",
         "short_description": "",
         "description": "The largest city I have ever been to! Mainly explore Gamla Stan and Djurgården.",
-        "highlights": [
-            "Vasa Museuem",
-            "Gröna Lund",
-            "Watching Taylor Tomlinson"
-        ],
+        "highlights": ["Vasa Museuem", "Gröna Lund", "Watching Taylor Tomlinson"],
         "outcomes": [],
         "date_start": "2025-07-21",
         "date_end": "2025-07-25",
@@ -211,11 +202,7 @@
         "organization": "",
         "short_description": "",
         "description": "Beautiful small city with tons of history on the southern tip of Sweden.",
-        "highlights": [
-            "Watching SatchVai",
-            "Malmö Castle",
-            "Kungsparken"
-        ],
+        "highlights": ["Watching SatchVai", "Malmö Castle", "Kungsparken"],
         "outcomes": [],
         "date_start": "2025-06-27",
         "date_end": "2025-06-28",
@@ -306,9 +293,7 @@
         "organization": "Mensa South Africa",
         "short_description": "",
         "description": "I took the admission test with a friend who did not want to go alone. Before this I have never heard of Mensa. While I enjoyed some of the events, such as whiskey, Lindt chocolate workshops, and champagne tastings, I found that the environment did not align with my interests nor values and chose not to renew my membership.",
-        "highlights": [
-            "Membership Number: 33112"
-        ],
+        "highlights": ["Membership Number: 33112"],
         "outcomes": [],
         "date_start": "2018-03-04",
         "date_end": "2022-06-01",

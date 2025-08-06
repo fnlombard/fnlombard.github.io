@@ -26,12 +26,7 @@
 
 <!-- Icon -->
 <button
-    class={`absolute cursor-pointer transition-all duration-300 ${props.item.isHighlighted ? "translate-y-1 scale-100" : "translate-y-3 scale-75"}`}
-    onclick={() => {
-        if (props.item.url) {
-            window.open(props.item.url, "_blank");
-        }
-    }}
+    class={`absolute transition-all duration-300 ${props.item.isHighlighted ? "translate-y-1 scale-100" : "translate-y-3 scale-75"}`}
 >
     <div class="absolute h-10 w-10 -translate-x-1/2 -translate-y-1/2" style="top: 50%;">
         <div
