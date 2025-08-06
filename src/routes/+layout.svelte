@@ -23,7 +23,8 @@
 
     const navigation_links: Link[] = [
         { label: "Resume", url: "/", icon: icons["resume"] },
-        { label: "Personal", url: "/personal", icon: icons["personal"] }
+        { label: "Personal", url: "/personal", icon: icons["personal"] },
+        { label: "Planets", url: "/planets", icon: icons["planets"] }
     ];
 
     const iconPath = "/favicon.png";
