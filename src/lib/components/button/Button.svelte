@@ -33,15 +33,17 @@
     disabled={props.disabled}
 >
     {#if props.iconPath}
-        <div class="w-6 max-w-6 min-w-6">
+        <div class="h-6 w-6">
             <Icon path={props.iconPath} {is_focused} />
         </div>
     {/if}
 
     <div
-        class="mx-2 my-auto flex items-center whitespace-nowrap transition-opacity duration-200"
+        class="mx-2 my-auto flex items-center overflow-hidden whitespace-nowrap transition-all duration-200"
         class:opacity-0={props.collapsed}
+        class:max-w-0={props.collapsed}
         class:opacity-100={!props.collapsed}
+        class:max-w-[10rem]={!props.collapsed}
     >
         {props.label}
     </div>
