@@ -30,11 +30,9 @@
     const title = "Francois Lombard";
 </script>
 
-<main class="flex flex-col transition-all duration-300 md:flex-row">
-    <div class="md:w-18">
-        <VerticalNavBar {title} {iconPath} {external_links} {navigation_links} />
-    </div>
-    <div class="w-full">
+<div class="flex min-h-screen flex-col">
+    <VerticalNavBar {title} {iconPath} {external_links} {navigation_links} />
+    <main class="flex-1 pt-14">
         {@render children()}
-    </div>
-</main>
+    </main>
+</div>

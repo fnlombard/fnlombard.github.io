@@ -22,6 +22,7 @@ interface TimelineItem {
     date_end: string;
     iconPath: string;
     url: string;
+    type?: "study" | "work";
 }
 
 interface TimelineItemVM extends TimelineItem {

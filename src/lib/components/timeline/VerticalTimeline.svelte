@@ -3,39 +3,23 @@
 
     interface IProps {
         items: TimelineItemVM[];
+        title?: string;
     }
 
     const props: IProps = $props();
 
-    let highlightedItem: TimelineItemVM | null = $derived(
-        props.items.find((item) => item.isHighlighted === true) || null
-    );
-
-    let hoveredItem: TimelineItemVM | null = $state(null);
-
     function mouseEnter(item: TimelineItemVM): void {
-        hoveredItem = item;
         item.isHighlighted = true;
         item.zIndex = props.items.length;
     }
 
     function mouseLeave(item: TimelineItemVM): void {
-        hoveredItem = null;
         item.isHighlighted = false;
         item.zIndex = null;
     }
-
-    $effect(() => {
-        props.items.forEach((item) => {
-            if (item.isHighlighted && hoveredItem !== item) {
-                const el = document.getElementById("" + item.id);
-                if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-            }
-        });
-    });
 </script>
 
-<div class="mt-4 flex flex-col px-8">
+<div class="flex flex-col px-4 md:px-8">
     {#each props.items as item (item.id)}
         <div
             id={`${item.id}`}
@@ -45,7 +29,7 @@
             style:z-index={item.isHighlighted ? "1" : "0"}
         >
             <VerticalTimelineItem {item} />
-            <div class="h-6 w-full"></div>
+            <div class="h-4 w-full"></div>
         </div>
     {/each}
 </div>
