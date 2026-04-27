@@ -43,6 +43,25 @@
         "iconPath": "m 5.2780367,0.51310371 c -0.00113,0.00273 -0.00286,0.00527 -0.00399,0.00799 h 4.0149909 z m 4.0110009,0.00799 C 7.6158618,4.2970457 6.9451221,7.2132891 11.27954,11.644762 c 4.334417,4.431472 5.164702,8.937973 0.473645,11.845124 6.216009,-0.591823 9.41044,-7.756363 4.658509,-12.4107 C 11.659763,6.4248491 11.31512,4.2244027 13.381965,0.52109771 Z m -4.0149976,0 -1.0991766,2.6e-6 V 12.855856 c 0,11.431434 9.9734966,8.074185 5.0682022,2.797903 C 4.3410334,10.380986 3.5866118,4.6219594 5.27404,0.52109821 Z m 14.551097,-0.006 c -1.737482,0 -7.317416,1.89273589 0,8.86935409 z"
     },
     {
+        "title": "Lecturer's Demonstrator",
+        "organization": "Stellenbosch University",
+        "short_description": "Stellenbosch University, ZA",
+        "description": "",
+        "highlights": [
+            "Mark tutorial scripts and A1 tests, in addition to assisting lecturers during 3 hour tutorial sessions",
+            "Control Systems, Computer Systems, Computer Programming, Applied and Engineering Mathematics."
+        ],
+        "outcomes": [
+            "People Skills",
+            "Time Management"
+        ],
+        "date_start": "2016-02-01",
+        "date_end": "2019-06-01",
+        "type": "work",
+        "url": "https://ee.sun.ac.za/",
+        "iconPath": "m 5.2780367,0.51310371 c -0.00113,0.00273 -0.00286,0.00527 -0.00399,0.00799 h 4.0149909 z m 4.0110009,0.00799 C 7.6158618,4.2970457 6.9451221,7.2132891 11.27954,11.644762 c 4.334417,4.431472 5.164702,8.937973 0.473645,11.845124 6.216009,-0.591823 9.41044,-7.756363 4.658509,-12.4107 C 11.659763,6.4248491 11.31512,4.2244027 13.381965,0.52109771 Z m -4.0149976,0 -1.0991766,2.6e-6 V 12.855856 c 0,11.431434 9.9734966,8.074185 5.0682022,2.797903 C 4.3410334,10.380986 3.5866118,4.6219594 5.27404,0.52109821 Z m 14.551097,-0.006 c -1.737482,0 -7.317416,1.89273589 0,8.86935409 z"
+    },
+    {
         "title": "MEng Electronic Engineering",
         "organization": "Electronic Systems Laboratory",
         "short_description": "Stellenbosch University, ZA",
@@ -74,6 +93,65 @@
         "iconPath": "m 12,1.3057348 h 9.166514 v 4.583257 H 12 q -4.1860413,0 -4.5527019,3.8193817 H 19.638761 V 14.291629 H 7.4472981 Q 7.8139587,18.11101 12,18.11101 h 9.166514 v 4.583255 H 12 q -9.1665136,0 -9.1665136,-9.166511 V 10.472248 Q 2.8334864,1.3057348 12,1.3057348 Z"
     },
     {
+        "title": "Intern",
+        "organization": "VASTech",
+        "short_description": "VASTech, ZA",
+        "description": "",
+        "highlights": [
+            "Developed an interactive booking system.",
+            "Bookings could be exported to GPS-devices.",
+            "Delivered a presentation to the company on the project's results."
+        ],
+        "outcomes": [
+            "JavaFX",
+            "Git",
+            "GPS"
+        ],
+        "date_start": "2016-12-01",
+        "date_end": "2017-01-15",
+        "type": "work",
+        "url": "https://www.vastech.co.za/",
+        "iconPath": "M 0.49996748,4.818925 8.0700445,19.181075 15.63521,4.818925 Z M 17.600188,8.2335639 11.695429,19.181075 h 11.804604 z"
+    },
+    {
+        "title": "Intern",
+        "organization": "VASTech",
+        "short_description": "VASTech, ZA",
+        "description": "",
+        "highlights": [
+            "Developed a MATLAB script.",
+            "RF- and signal processing-based project.",
+            "Delivered a presentation to the company on the project's results."
+        ],
+        "outcomes": [
+            "MATLAB",
+            "Signal Processing"
+        ],
+        "date_start": "2017-06-01",
+        "date_end": "2017-07-15",
+        "type": "work",
+        "url": "https://www.vastech.co.za/",
+        "iconPath": "M 0.49996748,4.818925 8.0700445,19.181075 15.63521,4.818925 Z M 17.600188,8.2335639 11.695429,19.181075 h 11.804604 z"
+    },
+    {
+        "title": "Teacher",
+        "organization": "Club Electron",
+        "short_description": "Club Electron, ZA",
+        "description": "",
+        "highlights": [
+            "Teach primary school pupils basic Android and Arduino development."
+        ],
+        "outcomes": [
+            "People Skills",
+            "Arduino"
+        ],
+        "date_start": "2018-02-01",
+        "date_end": "2018-05-31",
+        "type": "work",
+        "url": "https://www.clubelectron.net/",
+        "iconPath": "M 0.49996748,4.818925 8.0700445,19.181075 15.63521,4.818925 Z M 17.600188,8.2335639 11.695429,19.181075 h 11.804604 z"
+    },
+    {
         "title": "Software Engineer",
         "organization": "S-PLANE",
         "short_description": "S-PLANE, ZA",
@@ -100,10 +178,75 @@
             "Visual Studio"
         ],
         "date_start": "2020-01-01",
-        "date_end": "2022-08-31",
+        "date_end": "2021-12-31",
         "type": "work",
         "url": "https://s-plane.com/products/isr-payload-operation/paragonisr/",
         "iconPath": "m 14.028458,1.0872061 c 3.329505,3.2706164 3.964058,6.9207068 2.264326,10.6926519 L 23.368804,1.0872061 Z M 11.764132,6.559328 0.63119432,22.912794 H 16.607274 C 10.46424,18.488974 8.8498598,12.995883 11.764132,6.559328 Z"
+    },
+    {
+        "title": "Intern",
+        "organization": "S-PLANE",
+        "short_description": "S-PLANE, ZA",
+        "description": "",
+        "highlights": [
+            "Designed a Python demonstration program to generate mock data.",
+            "Delivered a presentation on the project deliverables."
+        ],
+        "outcomes": [
+            "Python",
+            "Git",
+            "Interpolation Techniques"
+        ],
+        "date_start": "2018-11-20",
+        "date_end": "2018-12-20",
+        "type": "work",
+        "url": "https://s-plane.com/products/isr-payload-operation/paragonisr/",
+        "iconPath": "m 14.028458,1.0872061 c 3.329505,3.2706164 3.964058,6.9207068 2.264326,10.6926519 L 23.368804,1.0872061 Z M 11.764132,6.559328 0.63119432,22.912794 H 16.607274 C 10.46424,18.488974 8.8498598,12.995883 11.764132,6.559328 Z"
+    },
+    {
+        "title": "Tutor",
+        "organization": "TutorElite",
+        "short_description": "TutorElite",
+        "description": "",
+        "highlights": [
+            "Instructed and mentored 70 undergraduate students in mathematics, raising student performance.",
+            "Authored and published 80-page booklets summarising course material, aiding students in preparation."
+        ],
+        "outcomes": [
+            "Python",
+            "Git",
+            "Interpolation Techniques"
+        ],
+        "date_start": "2018-05-01",
+        "date_end": "2019-01-31",
+        "type": "work",
+        "url": "",
+        "iconPath": "m 14.028458,1.0872061 c 3.329505,3.2706164 3.964058,6.9207068 2.264326,10.6926519 L 23.368804,1.0872061 Z M 11.764132,6.559328 0.63119432,22.912794 H 16.607274 C 10.46424,18.488974 8.8498598,12.995883 11.764132,6.559328 Z"
+    },
+    {
+        "title": "Senior Software Engineer",
+        "organization": "S-PLANE",
+        "short_description": "S-PLANE, ZA",
+        "description": "Promoted to Senior Software Engineer within the APP team.",
+        "highlights": [],
+        "outcomes": [
+            "C++11",
+            "Python",
+            "Git",
+            "SVN",
+            "NoesisGUI",
+            "Qt",
+            "C#",
+            "WPF",
+            "XAML",
+            "Visual Studio"
+        ],
+        "date_start": "2022-01-01",
+        "date_end": "2022-08-31",
+        "type": "work",
+        "url": "https://s-plane.com/products/isr-payload-operation/paragonisr/",
+        "iconPath": "m 14.028458,1.0872061 c 3.329505,3.2706164 3.964058,6.9207068 2.264326,10.6926519 L 23.368804,1.0872061 Z M 11.764132,6.559328 0.63119432,22.912794 H 16.607274 C 10.46424,18.488974 8.8498598,12.995883 11.764132,6.559328 Z",
+        "isSubEntry": true
     },
     {
         "title": "Software Engineer",

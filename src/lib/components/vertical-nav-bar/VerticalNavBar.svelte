@@ -41,10 +41,10 @@
             <a
                 href={link.url}
                 class="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium
-                    transition-all duration-200
+                    transition-all duration-200 focus:outline-none
                     {isActive
                         ? 'border border-indigo-500/25 bg-indigo-500/15 text-amber-200'
-                        : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'}"
+                        : 'border border-transparent text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'}"
             >
                 <div class="h-4 w-4 shrink-0">
                     <Icon path={link.icon} is_focused={isActive} />

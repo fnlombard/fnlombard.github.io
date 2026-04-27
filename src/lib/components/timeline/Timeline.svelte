@@ -14,6 +14,7 @@
         return items.map((item) => ({
             ...item,
             isHighlighted: false,
+            isFocused: false,
             left: 0,
             zIndex: null
         }));

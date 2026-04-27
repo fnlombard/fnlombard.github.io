@@ -65,49 +65,118 @@
     function scrollToItem(item: TimelineItemVM): void {
         allItems.forEach((i) => {
             i.isHighlighted = false;
+            i.isFocused = false;
             i.zIndex = null;
         });
         item.isHighlighted = true;
+        item.isFocused = true;
+        item.zIndex = 999;
         const el = document.getElementById(String(item.id));
         if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
     }
 
     /**
-     * Highlight the group whose centroid is nearest to the cursor's x-position
-     * along this track. Only clears/sets highlights within the same track so
-     * the two tracks are independent.
+     * Highlight items based on proximity to cursor.
+     * - Main entry (no isSubEntry): highlights all items with the same organization.
+     * - Sub-entry dot: highlights only that specific entry.
+     * Within a visually grouped cluster, Y position disambiguates which item is nearest.
      */
     function handleTrackMouseMove(event: MouseEvent, track: TimelineTrack): void {
         const el = event.currentTarget as HTMLElement;
         const rect = el.getBoundingClientRect();
         const pct = ((event.clientX - rect.left) / rect.width) * 100;
+        const cursorY = event.clientY - rect.top - rect.height / 2;
 
         const groups = buildGroups(track.items);
         if (groups.length === 0) return;
 
-        const nearest = groups.reduce((best, g) =>
+        // Find nearest group by X
+        const nearestGroup = groups.reduce((best, g) =>
             Math.abs(g.left - pct) < Math.abs(best.left - pct) ? g : best
         );
 
+        // Within the group, pick the item whose center Y is closest to cursor Y
+        let nearestItem = nearestGroup.items[0];
+        if (nearestGroup.items.length > 1) {
+            let closestDist = Infinity;
+            nearestGroup.items.forEach((item, idx) => {
+                const dist = Math.abs(getYOffset(idx, nearestGroup.items.length) - cursorY);
+                if (dist < closestDist) {
+                    closestDist = dist;
+                    nearestItem = item;
+                }
+            });
+        }
+
         track.items.forEach((i) => {
             i.isHighlighted = false;
-            i.zIndex = null;
+            i.isFocused = false;
+            i.zIndex = 0;
         });
-        nearest.items.forEach((item, idx) => {
-            item.isHighlighted = true;
-            item.zIndex = nearest.items.length - idx;
-        });
+
+        if (nearestItem.isSubEntry) {
+            // Dot hover: only this entry is highlighted and focused
+            nearestItem.isHighlighted = true;
+            nearestItem.isFocused = true;
+            nearestItem.zIndex = 999;
+        } else {
+            // Only co-highlight same-org entries when the org actually has sub-entries
+            // in this track (avoids grouping all personal items with empty org).
+            const orgHasSubEntries =
+                nearestItem.organization !== "" &&
+                track.items.some(
+                    (i) => i.isSubEntry && i.organization === nearestItem.organization
+                );
+
+            if (orgHasSubEntries) {
+                track.items
+                    .filter((i) => i.organization === nearestItem.organization)
+                    .forEach((i) => {
+                        i.isHighlighted = true;
+                        i.zIndex = 1;
+                    });
+            }
+            // Nearest item is always focused (scaled) and on top
+            nearestItem.isHighlighted = true;
+            nearestItem.isFocused = true;
+            nearestItem.zIndex = 999;
+        }
     }
 
     function handleTrackMouseLeave(track: TimelineTrack): void {
         track.items.forEach((i) => {
             i.isHighlighted = false;
+            i.isFocused = false;
             i.zIndex = null;
         });
     }
 
-    // The first highlighted item across all tracks (for the info bar)
-    const highlightedItem = $derived(allItems.find((i) => i.isHighlighted) ?? null);
+    // The focused item drives the info bar; prefer non-sub entry when org group is active.
+    const highlightedItem = $derived(
+        allItems.find((i) => i.isFocused && !i.isSubEntry) ??
+        allItems.find((i) => i.isFocused) ??
+        null
+    );
+
+    // When hovering a main entry whose org has sub-entries, compute total org tenure.
+    const orgTotalSpan = $derived(
+        (() => {
+            if (!highlightedItem || highlightedItem.isSubEntry) return null;
+            const track = tracks.find((t) => t.items.includes(highlightedItem));
+            if (!track) return null;
+            const orgItems = track.items.filter(
+                (i) => i.organization === highlightedItem.organization && i.organization !== ""
+            );
+            if (orgItems.length < 2 || !orgItems.some((i) => i.isSubEntry)) return null;
+            const minStart = Math.min(...orgItems.map((i) => toDate(i.date_start)));
+            const maxEnd = Math.max(...orgItems.map((i) => toDate(i.date_end)));
+            const totalDays = Math.floor((maxEnd - minStart) / (1000 * 60 * 60 * 24));
+            const years = Math.floor(totalDays / 365);
+            const months = Math.floor((totalDays % 365) / 30);
+            if (years > 0) return `${years}y${months > 0 ? ` ${months}m` : ""} total`;
+            return `${months}m total`;
+        })()
+    );
 
     const isDual = $derived(tracks.length > 1);
 </script>
@@ -139,7 +208,7 @@
             <!-- Timeline base line (gradient for a nice fade at edges) -->
             <div
                 class="pointer-events-none absolute inset-x-0 top-1/2 h-px -translate-y-1/2
-                    bg-gradient-to-r from-transparent via-slate-600/70 to-transparent"
+                    bg-gradient-to-r from-transparent via-amber-200/40 to-transparent"
             ></div>
 
             <!-- Items area — handles proximity hover for the whole track row -->
@@ -196,23 +265,12 @@
                                     border-dashed border-slate-500/50"
                                 style="top: {topY - 2}px; height: {spread + 4}px"
                             ></div>
-                            <!-- Group count badge -->
-                            <div
-                                class="absolute z-50 flex h-3.5 min-w-[14px] items-center
-                                    justify-center rounded px-0.5 text-[8px] font-bold leading-none
-                                    {track.accent === 'study'
-                                    ? 'bg-cyan-700 text-cyan-100'
-                                    : 'bg-amber-700 text-amber-100'}"
-                                style="top: {getYOffset(0, group.items.length) - 18}px; left: 3px"
-                            >
-                                {group.items.length}
-                            </div>
                         {/if}
 
                         <!-- Individual items in the group -->
                         {#each group.items as item, itemIdx}
                             <div
-                                class="absolute transition-all duration-200"
+                                class="absolute -translate-y-1/2 transition-all duration-200"
                                 style="top: {getYOffset(itemIdx, group.items.length)}px;
                                     z-index: {item.zIndex ?? itemIdx + 1}"
                             >
@@ -242,6 +300,10 @@
             {/if}
             <span class="text-slate-500"> · </span>
             <span class="text-slate-500">{highlightedItem.date_start}</span>
+            {#if orgTotalSpan}
+                <span class="text-slate-500"> · </span>
+                <span class="text-amber-300/70">{orgTotalSpan}</span>
+            {/if}
         {/if}
     </div>
 </div>

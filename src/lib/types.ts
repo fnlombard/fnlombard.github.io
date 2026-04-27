@@ -23,10 +23,12 @@ interface TimelineItem {
     iconPath: string;
     url: string;
     type?: "study" | "work";
+    isSubEntry?: boolean;
 }
 
 interface TimelineItemVM extends TimelineItem {
     isHighlighted: boolean;
+    isFocused: boolean;
     left: number;
     zIndex: number | null;
 }
